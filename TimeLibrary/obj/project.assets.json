@@ -8,24 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\SkutecznieUse\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\marci\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\SkutecznieUse\\Desktop\\studia\\Time-TimePeriod\\TimeLibrary\\TimeLibrary.csproj",
+      "projectUniqueName": "C:\\Users\\marci\\Desktop\\projekty studia\\Time-TimePeriod\\TimeLibrary\\TimeLibrary.csproj",
       "projectName": "TimeLibrary",
-      "projectPath": "C:\\Users\\SkutecznieUse\\Desktop\\studia\\Time-TimePeriod\\TimeLibrary\\TimeLibrary.csproj",
-      "packagesPath": "C:\\Users\\SkutecznieUse\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\SkutecznieUse\\Desktop\\studia\\Time-TimePeriod\\TimeLibrary\\obj\\",
+      "projectPath": "C:\\Users\\marci\\Desktop\\projekty studia\\Time-TimePeriod\\TimeLibrary\\TimeLibrary.csproj",
+      "packagesPath": "C:\\Users\\marci\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\marci\\Desktop\\projekty studia\\Time-TimePeriod\\TimeLibrary\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\SkutecznieUse\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\marci\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -33,7 +28,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

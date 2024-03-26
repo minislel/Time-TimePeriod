@@ -216,5 +216,41 @@ namespace TimePeriodLibrary
         }
     }
     public struct TimePeriod 
-    { }
+    {
+        private long _seconds;
+        public long Seconds
+        {get
+            {
+                return _seconds;
+            }
+         private set 
+            {
+                _seconds = value;
+            }
+        }
+        public long Minutes
+        {
+            get { return _seconds/60; }
+            private set 
+            { 
+                _seconds = value/60;
+            }
+        }
+        public long Hours
+        {
+            get { return _seconds / 3600; }
+            private set
+            {
+                _seconds = value / 3600;
+            }
+        }
+        public TimePeriod(long seconds)
+        {
+            Seconds = seconds;
+        }
+        public TimePeriod(long minutes, long seconds) 
+        { 
+            Seconds= minutes;
+        }
+    }
 }
