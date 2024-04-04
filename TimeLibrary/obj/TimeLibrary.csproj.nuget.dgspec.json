@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\marci\\Desktop\\projekty studia\\Time-TimePeriod\\TimeLibrary\\TimeLibrary.csproj": {}
+    "D:\\Users\\marcin.swiderski\\Desktop\\Time-TimePeriod\\TimeLibrary\\TimeLibrary.csproj": {}
   },
   "projects": {
-    "C:\\Users\\marci\\Desktop\\projekty studia\\Time-TimePeriod\\TimeLibrary\\TimeLibrary.csproj": {
+    "D:\\Users\\marcin.swiderski\\Desktop\\Time-TimePeriod\\TimeLibrary\\TimeLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marci\\Desktop\\projekty studia\\Time-TimePeriod\\TimeLibrary\\TimeLibrary.csproj",
+        "projectUniqueName": "D:\\Users\\marcin.swiderski\\Desktop\\Time-TimePeriod\\TimeLibrary\\TimeLibrary.csproj",
         "projectName": "TimeLibrary",
-        "projectPath": "C:\\Users\\marci\\Desktop\\projekty studia\\Time-TimePeriod\\TimeLibrary\\TimeLibrary.csproj",
-        "packagesPath": "C:\\Users\\marci\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marci\\Desktop\\projekty studia\\Time-TimePeriod\\TimeLibrary\\obj\\",
+        "projectPath": "D:\\Users\\marcin.swiderski\\Desktop\\Time-TimePeriod\\TimeLibrary\\TimeLibrary.csproj",
+        "packagesPath": "D:\\Users\\marcin.swiderski\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\marcin.swiderski\\Desktop\\Time-TimePeriod\\TimeLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\marci\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "D:\\Users\\marcin.swiderski\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -60,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

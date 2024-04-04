@@ -11,9 +11,10 @@ namespace TimePeriodLibrary
         private byte _hours;
         private byte _minutes;
         private byte _seconds;
-        public byte Hours { get { return _hours; } private set { _hours = value; } }
-        public byte Minutes { get { return _minutes; } private set { _minutes = value; } }
-        public byte Seconds { get { return _seconds; } private set { _seconds = value; } }
+        public byte Hours { get { return _hours; } private set { if (value < 24) { _hours = value; } else { throw new ArgumentOutOfRangeException(); } } }
+        public byte Minutes { get { return _minutes; } private set { if (value < 60) { _minutes = value; } else { throw new ArgumentOutOfRangeException(); } } }
+        public byte Seconds { get { return _seconds; } private set { if (value < 60) { _seconds = value; } else { throw new ArgumentOutOfRangeException(); } } }
+        
 
         public Time(byte HH=0, byte MM=0, byte SS=0)
         {
@@ -51,7 +52,6 @@ namespace TimePeriodLibrary
         }
         public override string ToString()
         {
-
             StringBuilder sb = new StringBuilder("", 8);
             if (Hours < 10)
             { sb.Append(new char[] {'0', (char)Hours, ':'}); }
@@ -219,7 +219,8 @@ namespace TimePeriodLibrary
     {
         private long _seconds;
         public long Seconds
-        {get
+        {
+            get
             {
                 return _seconds;
             }
@@ -233,7 +234,7 @@ namespace TimePeriodLibrary
             get { return _seconds/60; }
             private set 
             { 
-                _seconds = value/60;
+                _seconds = value*60;
             }
         }
         public long Hours
@@ -241,7 +242,7 @@ namespace TimePeriodLibrary
             get { return _seconds / 3600; }
             private set
             {
-                _seconds = value / 3600;
+                _seconds = value * 3600;
             }
         }
         public TimePeriod(long seconds)
@@ -250,7 +251,15 @@ namespace TimePeriodLibrary
         }
         public TimePeriod(long minutes, long seconds) 
         { 
-            Seconds= minutes;
+            Seconds= seconds;
+            Seconds += minutes * 60;
         }
+        public TimePeriod(long hours, long minutes, long seconds)
+        {
+            Seconds = seconds;
+            Seconds += minutes * 60;
+            Seconds += hours * 3600;
+        }
+
     }
 }

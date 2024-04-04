@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TimeLibrary
-build_property.ProjectDir = C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\TimeLibrary\
+build_property.ProjectDir = D:\Users\marcin.swiderski\Desktop\Time-TimePeriod\TimeLibrary\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
