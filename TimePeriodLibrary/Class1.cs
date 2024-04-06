@@ -118,75 +118,19 @@ namespace TimePeriodLibrary
         }
         public static bool operator >(Time A, Time B)
         {
-            if (A.Hours > B.Hours)
-            { return true; }
-            else if (A.Hours < B.Hours)
-            { return false; }
-            else if (A.Hours == B.Hours)
-            {
-                if (A.Minutes > B.Minutes)
-                { return true; }
-                else if (A.Minutes < B.Minutes)
-                { return false; }
-                else if (A.Minutes == B.Minutes)
-                {
-                    if (A.Seconds > B.Seconds)
-                    { return true; }
-                    else if (A.Seconds < B.Seconds)
-                    { return false; }
-                    else if (A.Seconds == B.Seconds)
-                    { return false; }
-                }
-            }
-            return false;
+            return !(A<B);
         }
         public static bool operator >=(Time A, Time B)
         {
-            if (A.Hours > B.Hours)
+            if (A == B)
             { return true; }
-            else if (A.Hours < B.Hours)
-            { return false; }
-            else if (A.Hours == B.Hours)
-            {
-                if (A.Minutes > B.Minutes)
-                { return true; }
-                else if (A.Minutes < B.Minutes)
-                { return false; }
-                else if (A.Minutes == B.Minutes)
-                {
-                    if (A.Seconds > B.Seconds)
-                    { return true; }
-                    else if (A.Seconds < B.Seconds)
-                    { return false; }
-                    else if (A.Seconds == B.Seconds)
-                    { return true; }
-                }
-            }
-            return false;
+            else return A > B;     
         }
         public static bool operator <=(Time A, Time B)
         {
-            if (A.Hours > B.Hours)
-            { return false; }
-            else if (A.Hours < B.Hours)
+            if (A == B)
             { return true; }
-            else if (A.Hours == B.Hours)
-            {
-                if (A.Minutes > B.Minutes)
-                { return false; }
-                else if (A.Minutes < B.Minutes)
-                { return true; }
-                else if (A.Minutes == B.Minutes)
-                {
-                    if (A.Seconds > B.Seconds)
-                    { return false; }
-                    else if (A.Seconds < B.Seconds)
-                    { return true; }
-                    else if (A.Seconds == B.Seconds)
-                    { return true; }
-                }
-            }
-            return false;
+            else return A < B;
         }
         public static bool operator ==(Time A, Time B)
         {
@@ -259,6 +203,14 @@ namespace TimePeriodLibrary
             Seconds = seconds;
             Seconds += minutes * 60;
             Seconds += hours * 3600;
+        }
+        public TimePeriod(string input) 
+        {
+           string[] strings = input.Split(":");
+            if (strings.Length == 3 && long.TryParse(strings[0], out long H) && long.TryParse(strings[1], out long M) && long.TryParse(strings[2], out long S)) 
+            { 
+            
+            }
         }
 
     }

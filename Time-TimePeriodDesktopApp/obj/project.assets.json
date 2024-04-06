@@ -8,19 +8,19 @@
     "net8.0-windows7.0": []
   },
   "packageFolders": {
-    "D:\\Users\\marcin.swiderski\\.nuget\\packages\\": {}
+    "C:\\Users\\marci\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Users\\marcin.swiderski\\Desktop\\Time-TimePeriod\\Time-TimePeriodDesktopApp\\Time-TimePeriodDesktopApp.csproj",
+      "projectUniqueName": "C:\\Users\\marci\\Desktop\\projekty studia\\Time-TimePeriod\\Time-TimePeriodDesktopApp\\Time-TimePeriodDesktopApp.csproj",
       "projectName": "Time-TimePeriodDesktopApp",
-      "projectPath": "D:\\Users\\marcin.swiderski\\Desktop\\Time-TimePeriod\\Time-TimePeriodDesktopApp\\Time-TimePeriodDesktopApp.csproj",
-      "packagesPath": "D:\\Users\\marcin.swiderski\\.nuget\\packages\\",
-      "outputPath": "D:\\Users\\marcin.swiderski\\Desktop\\Time-TimePeriod\\Time-TimePeriodDesktopApp\\obj\\",
+      "projectPath": "C:\\Users\\marci\\Desktop\\projekty studia\\Time-TimePeriod\\Time-TimePeriodDesktopApp\\Time-TimePeriodDesktopApp.csproj",
+      "packagesPath": "C:\\Users\\marci\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\marci\\Desktop\\projekty studia\\Time-TimePeriod\\Time-TimePeriodDesktopApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "D:\\Users\\marcin.swiderski\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\marci\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -69,7 +69,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

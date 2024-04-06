@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Users\\marcin.swiderski\\Desktop\\Time-TimePeriod\\TimePeriodLibrary\\TimePeriodLibrary.csproj": {}
+    "C:\\Users\\marci\\Desktop\\projekty studia\\Time-TimePeriod\\TimePeriodLibrary\\TimePeriodLibrary.csproj": {}
   },
   "projects": {
-    "D:\\Users\\marcin.swiderski\\Desktop\\Time-TimePeriod\\TimePeriodLibrary\\TimePeriodLibrary.csproj": {
+    "C:\\Users\\marci\\Desktop\\projekty studia\\Time-TimePeriod\\TimePeriodLibrary\\TimePeriodLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Users\\marcin.swiderski\\Desktop\\Time-TimePeriod\\TimePeriodLibrary\\TimePeriodLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\marci\\Desktop\\projekty studia\\Time-TimePeriod\\TimePeriodLibrary\\TimePeriodLibrary.csproj",
         "projectName": "TimePeriodLibrary",
-        "projectPath": "D:\\Users\\marcin.swiderski\\Desktop\\Time-TimePeriod\\TimePeriodLibrary\\TimePeriodLibrary.csproj",
-        "packagesPath": "D:\\Users\\marcin.swiderski\\.nuget\\packages\\",
-        "outputPath": "D:\\Users\\marcin.swiderski\\Desktop\\Time-TimePeriod\\TimePeriodLibrary\\obj\\",
+        "projectPath": "C:\\Users\\marci\\Desktop\\projekty studia\\Time-TimePeriod\\TimePeriodLibrary\\TimePeriodLibrary.csproj",
+        "packagesPath": "C:\\Users\\marci\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\marci\\Desktop\\projekty studia\\Time-TimePeriod\\TimePeriodLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "D:\\Users\\marcin.swiderski\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\marci\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -60,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
