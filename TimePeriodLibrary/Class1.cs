@@ -8,8 +8,8 @@ namespace TimePeriodLibrary
     public struct Time : IEquatable<Time>, IComparable<Time>
     {
         
-        private byte _hours;
-        private byte _minutes;
+        private byte _hours = 0;
+        private byte _minutes = 0;
         private byte _seconds;
         public byte Hours { get { return _hours; } private set { if (value < 24) { _hours = value; } else { throw new ArgumentOutOfRangeException(); } } }
         public byte Minutes { get { return _minutes; } private set { if (value < 60) { _minutes = value; } else { throw new ArgumentOutOfRangeException(); } } }
@@ -153,16 +153,33 @@ namespace TimePeriodLibrary
             else { return false; }
         }
 
-
         public override int GetHashCode()
         {
             return (int)Hours ^ (int)Minutes ^ (int)Seconds;
+        }
+        public void Plus(TimePeriod TP)
+        {
+            if ((byte)(this.Hours + TP.Hours) < 24) { Hours = (byte)(this.Hours + TP.Hours); }
+            else { throw new ArgumentOutOfRangeException(); }
+            if((byte)(this.Minutes + TP.Minutes)<60) { Minutes = (byte)(this.Minutes + TP.Minutes); }
+            else { Minutes = (byte)((this.Minutes + TP.Minutes)%60); Hours = (byte)(this.Hours + ((this.Minutes + TP.Minutes) / 60)); }
+            if ((byte)(this.Seconds + TP.Seconds) < 60) { Seconds = (byte)(this.Seconds + TP.Seconds); }
+            else { Minutes = (byte)(this.Minutes + (TP.Seconds / 60)); Seconds = (byte)((this.Seconds + TP.Seconds) % 60); }
+        }
+        public void Minus(TimePeriod TP)
+        {
+            if ((sbyte)(this.Hours - TP.Hours) > 0) { Hours = (byte)(this.Hours - TP.Hours); }
+            else { throw new ArgumentOutOfRangeException(); }
+            if ((sbyte)(this.Minutes - TP.Minutes) > 0) { Minutes = (byte)(this.Minutes - TP.Minutes); }
+            else { Hours -= (byte)Math.Abs(Math.Ceiling((decimal)((this.Minutes - TP.Minutes)/60))); Minutes -= (byte)(TP.Minutes % 60); }
+            if ((byte)(this.Seconds - TP.Seconds) > 0) { Seconds = (byte)(this.Seconds - TP.Seconds); }
+            else { Minutes -= (byte)Math.Abs(Math.Ceiling((decimal)(this.Seconds - TP.Seconds)/60)); Seconds -= (byte)(TP.Seconds % 60); }
         }
     }
     public struct TimePeriod 
     {
         private long _seconds;
-        public long Seconds
+        public long SecondsTotal
         {
             get
             {
@@ -173,45 +190,86 @@ namespace TimePeriodLibrary
                 _seconds = value;
             }
         }
+        public long Seconds
+        {
+            get 
+            {
+                if (SecondsTotal % 3600 > 0)
+                {
+                    return (SecondsTotal % 3600) % 60;
+                }
+                else if (SecondsTotal % 60 > 0)
+                {
+                    return SecondsTotal % 60;
+                }
+                else return SecondsTotal;
+            }
+        }
         public long Minutes
         {
-            get { return _seconds/60; }
-            private set 
-            { 
-                _seconds = value*60;
+            get
+            {
+                return SecondsTotal % 3600 / 60;
             }
         }
         public long Hours
         {
-            get { return _seconds / 3600; }
-            private set
-            {
-                _seconds = value * 3600;
-            }
+            get { return SecondsTotal / 3600; }
         }
         public TimePeriod(long seconds)
         {
-            Seconds = seconds;
+            SecondsTotal = seconds;
         }
         public TimePeriod(long minutes, long seconds) 
         { 
-            Seconds= seconds;
-            Seconds += minutes * 60;
+            SecondsTotal= seconds + minutes * 60;
         }
         public TimePeriod(long hours, long minutes, long seconds)
         {
-            Seconds = seconds;
-            Seconds += minutes * 60;
-            Seconds += hours * 3600;
+            SecondsTotal = seconds + minutes * 60 + hours * 3600;
         }
         public TimePeriod(string input) 
         {
+            long H;
+            long M;
+            long S;
            string[] strings = input.Split(":");
-            if (strings.Length == 3 && long.TryParse(strings[0], out long H) && long.TryParse(strings[1], out long M) && long.TryParse(strings[2], out long S)) 
-            { 
-            
+            if (strings.Length == 3 && long.TryParse(strings[0], out H) && long.TryParse(strings[1], out M) && long.TryParse(strings[2], out S))
+            {
+                SecondsTotal = S + M * 60 + H * 3600;
             }
+            else if (strings.Length == 2 && long.TryParse(strings[0], out M) && long.TryParse(strings[1], out S))
+            {
+                SecondsTotal = S + M * 60;
+            }
+            else if (strings.Length == 1 && long.TryParse(strings[0], out S))
+            {
+                SecondsTotal = S;
+            }
+            else throw new ArgumentException("invalid input string format");
         }
+        public override string ToString()
+        {
+/*            long H = SecondsTotal / 3600;
+            long M = SecondsTotal / 60;
+            long S = SecondsTotal;
+            if (SecondsTotal % 3600 > 0)
+            {
+                M = (SecondsTotal % 3600) / 60;
+                if ((SecondsTotal % 3600) % 60 > 0)
+                    { S = (SecondsTotal % 3600) % 60; }
+                else { SecondsTotal = 0; }
+            }
+            else if (SecondsTotal % 60 > 0)
+            {
+                M = SecondsTotal / 60;
+                S = SecondsTotal % 60;
+            }
+            else
+             { S = SecondsTotal; }*/
+            return $"{Hours}:{Minutes}:{Seconds}";
+        }
+
 
     }
 }
