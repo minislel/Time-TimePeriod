@@ -20,5 +20,11 @@ namespace Time_TimePeriodDesktopApp
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+           
+        }
+        
     }
 }

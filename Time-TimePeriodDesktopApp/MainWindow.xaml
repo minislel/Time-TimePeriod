@@ -5,18 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Time_TimePeriodDesktopApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid Margin="10">
+        Title="Clock(Time, TimePeriod)" Height="450" Width="800">
+    <Border CornerRadius="1"
+            Background="#272727">
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-
-    </Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="180" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Row="1">
+                <Button HorizontalAlignment="Left" Width="180" HorizontalContentAlignment="Left" Background="#505050" BorderBrush="#404040" Click="Button_Click">
+                    <TextBlock
+                        Text="Add new clock"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        
+                        />
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Border>
 </Window>
