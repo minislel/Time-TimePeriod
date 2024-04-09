@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\marci\\Desktop\\projekty studia\\Time-TimePeriod\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E7326FA4-0A85-46A3-AD3F-6D45B8DFF87C}|TimePeriodLibrary\\TimePeriodLibrary.csproj|c:\\users\\marci\\desktop\\projekty studia\\time-timeperiod\\timeperiodlibrary\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E7326FA4-0A85-46A3-AD3F-6D45B8DFF87C}|TimePeriodLibrary\\TimePeriodLibrary.csproj|solutionrelative:timeperiodlibrary\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5355E9E1-CD06-4123-8D08-006E37A1F82D}|Time-TimePeriodDesktopApp\\Time-TimePeriodDesktopApp.csproj|c:\\users\\marci\\desktop\\projekty studia\\time-timeperiod\\time-timeperioddesktopapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{5355E9E1-CD06-4123-8D08-006E37A1F82D}|Time-TimePeriodDesktopApp\\Time-TimePeriodDesktopApp.csproj|solutionrelative:time-timeperioddesktopapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E44D44B-E581-4675-A3D4-C60137CFC332}|TestProject1\\TestProject1.csproj|c:\\users\\marci\\desktop\\projekty studia\\time-timeperiod\\testproject1\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E44D44B-E581-4675-A3D4-C60137CFC332}|TestProject1\\TestProject1.csproj|solutionrelative:testproject1\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5355E9E1-CD06-4123-8D08-006E37A1F82D}|Time-TimePeriodDesktopApp\\Time-TimePeriodDesktopApp.csproj|c:\\users\\marci\\desktop\\projekty studia\\time-timeperiod\\time-timeperioddesktopapp\\observableobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5355E9E1-CD06-4123-8D08-006E37A1F82D}|Time-TimePeriodDesktopApp\\Time-TimePeriodDesktopApp.csproj|solutionrelative:time-timeperioddesktopapp\\observableobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5355E9E1-CD06-4123-8D08-006E37A1F82D}|Time-TimePeriodDesktopApp\\Time-TimePeriodDesktopApp.csproj|c:\\users\\marci\\desktop\\projekty studia\\time-timeperiod\\time-timeperioddesktopapp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5355E9E1-CD06-4123-8D08-006E37A1F82D}|Time-TimePeriodDesktopApp\\Time-TimePeriodDesktopApp.csproj|solutionrelative:time-timeperioddesktopapp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7326FA4-0A85-46A3-AD3F-6D45B8DFF87C}|TimePeriodLibrary\\TimePeriodLibrary.csproj|c:\\users\\marci\\desktop\\projekty studia\\time-timeperiod\\timeperiodlibrary\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7326FA4-0A85-46A3-AD3F-6D45B8DFF87C}|TimePeriodLibrary\\TimePeriodLibrary.csproj|solutionrelative:timeperiodlibrary\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E44D44B-E581-4675-A3D4-C60137CFC332}|TestProject1\\TestProject1.csproj|c:\\users\\marci\\desktop\\projekty studia\\time-timeperiod\\testproject1\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E44D44B-E581-4675-A3D4-C60137CFC332}|TestProject1\\TestProject1.csproj|solutionrelative:testproject1\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,11 +30,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
+              "Title": "ObservableObject.cs",
+              "DocumentMoniker": "C:\\Users\\marci\\Desktop\\projekty studia\\Time-TimePeriod\\Time-TimePeriodDesktopApp\\ObservableObject.cs",
+              "RelativeDocumentMoniker": "Time-TimePeriodDesktopApp\\ObservableObject.cs",
+              "ToolTip": "C:\\Users\\marci\\Desktop\\projekty studia\\Time-TimePeriod\\Time-TimePeriodDesktopApp\\ObservableObject.cs",
+              "RelativeToolTip": "Time-TimePeriodDesktopApp\\ObservableObject.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-09T09:10:10.14Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "UnitTest1.cs",
               "DocumentMoniker": "C:\\Users\\marci\\Desktop\\projekty studia\\Time-TimePeriod\\TestProject1\\UnitTest1.cs",
               "RelativeDocumentMoniker": "TestProject1\\UnitTest1.cs",
@@ -38,24 +55,25 @@
               "RelativeToolTip": "TestProject1\\UnitTest1.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-23T12:11:49.71Z"
+              "WhenOpened": "2024-03-23T12:11:49.71Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Class1.cs",
               "DocumentMoniker": "C:\\Users\\marci\\Desktop\\projekty studia\\Time-TimePeriod\\TimePeriodLibrary\\Class1.cs",
               "RelativeDocumentMoniker": "TimePeriodLibrary\\Class1.cs",
               "ToolTip": "C:\\Users\\marci\\Desktop\\projekty studia\\Time-TimePeriod\\TimePeriodLibrary\\Class1.cs",
               "RelativeToolTip": "TimePeriodLibrary\\Class1.cs",
-              "ViewState": "AQIAAPoAAAAAAAAAAAA2wCQAAAAPAAAA",
+              "ViewState": "AQIAAOgAAAAAAAAAAAAqwPIAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-23T12:11:36.02Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\marci\\Desktop\\projekty studia\\Time-TimePeriod\\Time-TimePeriodDesktopApp\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Time-TimePeriodDesktopApp\\MainWindow.xaml",
@@ -67,15 +85,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\marci\\Desktop\\projekty studia\\Time-TimePeriod\\Time-TimePeriodDesktopApp\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Time-TimePeriodDesktopApp\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\marci\\Desktop\\projekty studia\\Time-TimePeriod\\Time-TimePeriodDesktopApp\\MainWindow.xaml.cs",
               "RelativeToolTip": "Time-TimePeriodDesktopApp\\MainWindow.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-23T12:10:38.03Z"
+              "WhenOpened": "2024-03-23T12:10:38.03Z",
+              "EditorCaption": ""
             }
           ]
         }

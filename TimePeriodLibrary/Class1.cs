@@ -68,30 +68,8 @@ namespace TimePeriodLibrary
             return sb.ToString();
         }
 
-        public int CompareTo(Time other)
-        {
-            if (this.Hours > other.Hours)
-            { return -1; }
-            else if (this.Hours < other.Hours)
-            { return 1; }
-            else if (this.Hours == other.Hours)
-            {
-                if (this.Minutes > other.Minutes)
-                { return -1; }
-                else if (this.Minutes < other.Minutes)
-                { return 1; }
-                else if (this.Minutes == other.Minutes)
-                {
-                    if (this.Seconds > other.Seconds)
-                    { return -1; }
-                    else if (this.Seconds < other.Seconds)
-                    { return 1; }
-                    else if (this.Seconds == other.Seconds)
-                    { return 0; }
-                }
-            }
-            return 0;
-        }
+        public int CompareTo(Time other) => (this == other ? 0 : (this > other ? -1 : 1));
+
         public static bool operator <(Time A, Time B)
         {
             if (A.Hours > B.Hours)
@@ -116,10 +94,8 @@ namespace TimePeriodLibrary
             }
             return false;
         }
-        public static bool operator >(Time A, Time B)
-        {
-            return !(A<B);
-        }
+        public static bool operator >(Time A, Time B) => !(A < B);
+
         public static bool operator >=(Time A, Time B)
         {
             if (A == B)
@@ -132,14 +108,10 @@ namespace TimePeriodLibrary
             { return true; }
             else return A < B;
         }
-        public static bool operator ==(Time A, Time B)
-        {
-            return A.Equals(B);
-        }
-        public static bool operator !=(Time A, Time B)
-        {
-            return !A.Equals(B);
-        }
+        public static bool operator ==(Time A, Time B) => A.Equals(B);
+
+        public static bool operator !=(Time A, Time B) => !A.Equals(B);
+
         public override bool Equals(object? obj)
         {
             if (obj == null)
@@ -153,10 +125,8 @@ namespace TimePeriodLibrary
             else { return false; }
         }
 
-        public override int GetHashCode()
-        {
-            return (int)Hours ^ (int)Minutes ^ (int)Seconds;
-        }
+        public override int GetHashCode() => (int)Hours ^ (int)Minutes ^ (int)Seconds;
+
         public void Plus(TimePeriod TP)
         {
             if ((byte)(this.Hours + TP.Hours) < 24) { Hours = (byte)(this.Hours + TP.Hours); }
@@ -175,8 +145,11 @@ namespace TimePeriodLibrary
             if ((byte)(this.Seconds - TP.Seconds) > 0) { Seconds = (byte)(this.Seconds - TP.Seconds); }
             else { Minutes -= (byte)Math.Abs(Math.Ceiling((decimal)(this.Seconds - TP.Seconds)/60)); Seconds -= (byte)(TP.Seconds % 60); }
         }
+        public static void Plus(Time This, TimePeriod TP) => This.Plus(TP);
+
+        public static void Minus(Time This, TimePeriod TP) => This.Minus(TP);
     }
-    public struct TimePeriod 
+    public struct TimePeriod : IEquatable<TimePeriod>, IComparable<TimePeriod>
     {
         private long _seconds;
         public long SecondsTotal
@@ -185,14 +158,14 @@ namespace TimePeriodLibrary
             {
                 return _seconds;
             }
-         private set 
+            private set
             {
                 _seconds = value;
             }
         }
         public long Seconds
         {
-            get 
+            get
             {
                 if (SecondsTotal % 3600 > 0)
                 {
@@ -220,20 +193,28 @@ namespace TimePeriodLibrary
         {
             SecondsTotal = seconds;
         }
-        public TimePeriod(long minutes, long seconds) 
-        { 
-            SecondsTotal= seconds + minutes * 60;
+        public TimePeriod(long minutes, long seconds)
+        {
+            SecondsTotal = seconds + minutes * 60;
         }
         public TimePeriod(long hours, long minutes, long seconds)
         {
             SecondsTotal = seconds + minutes * 60 + hours * 3600;
         }
-        public TimePeriod(string input) 
+        public TimePeriod(Time A, Time B)
+        {
+            long H = Math.Abs(A.Hours - B.Hours);
+            long M = Math.Abs(A.Minutes - B.Minutes);
+            long S = Math.Abs(A.Seconds - B.Seconds);
+            SecondsTotal = H * 3600 + M * 60 + S;
+        }
+
+        public TimePeriod(string input)
         {
             long H;
             long M;
             long S;
-           string[] strings = input.Split(":");
+            string[] strings = input.Split(":");
             if (strings.Length == 3 && long.TryParse(strings[0], out H) && long.TryParse(strings[1], out M) && long.TryParse(strings[2], out S))
             {
                 SecondsTotal = S + M * 60 + H * 3600;
@@ -250,26 +231,48 @@ namespace TimePeriodLibrary
         }
         public override string ToString()
         {
-/*            long H = SecondsTotal / 3600;
-            long M = SecondsTotal / 60;
-            long S = SecondsTotal;
-            if (SecondsTotal % 3600 > 0)
-            {
-                M = (SecondsTotal % 3600) / 60;
-                if ((SecondsTotal % 3600) % 60 > 0)
-                    { S = (SecondsTotal % 3600) % 60; }
-                else { SecondsTotal = 0; }
-            }
-            else if (SecondsTotal % 60 > 0)
-            {
-                M = SecondsTotal / 60;
-                S = SecondsTotal % 60;
-            }
-            else
-             { S = SecondsTotal; }*/
+            /*            long H = SecondsTotal / 3600;
+                        long M = SecondsTotal / 60;
+                        long S = SecondsTotal;
+                        if (SecondsTotal % 3600 > 0)
+                        {
+                            M = (SecondsTotal % 3600) / 60;
+                            if ((SecondsTotal % 3600) % 60 > 0)
+                                { S = (SecondsTotal % 3600) % 60; }
+                            else { SecondsTotal = 0; }
+                        }
+                        else if (SecondsTotal % 60 > 0)
+                        {
+                            M = SecondsTotal / 60;
+                            S = SecondsTotal % 60;
+                        }
+                        else
+                         { S = SecondsTotal; }*/
             return $"{Hours}:{Minutes}:{Seconds}";
         }
+        public void Plus(TimePeriod other) => this.SecondsTotal += other.SecondsTotal;
+        public void Minus(TimePeriod other) => this.SecondsTotal -= other.SecondsTotal;
+        public static void Plus(TimePeriod This, TimePeriod other) => This.SecondsTotal += other.SecondsTotal;
+        public static void Minus(TimePeriod This, TimePeriod other) => This.SecondsTotal -= other.SecondsTotal;
+        public int CompareTo(TimePeriod other) => (this.SecondsTotal == other.SecondsTotal ? 0 : (this.SecondsTotal > other.SecondsTotal ? -1 : 1));
+        public override bool Equals(object? obj)
+        {
+            if (obj == null)
+            { return false; }
+            return Equals(obj);
+        }
 
+        public bool Equals(TimePeriod other) => (this.SecondsTotal == other.SecondsTotal);
 
+        public override int GetHashCode() => this.SecondsTotal.GetHashCode();
+
+        public static bool operator <(TimePeriod A, TimePeriod B) => (A.SecondsTotal < B.SecondsTotal);
+        public static bool operator >(TimePeriod A, TimePeriod B) => (A.SecondsTotal > B.SecondsTotal);
+        public static bool operator <=(TimePeriod A, TimePeriod B) => (A.SecondsTotal <= B.SecondsTotal);
+        public static bool operator >=(TimePeriod A, TimePeriod B) => (A.SecondsTotal >= B.SecondsTotal);
+        public static bool operator ==(TimePeriod A, TimePeriod B) => (A.SecondsTotal == B.SecondsTotal);
+        public static bool operator !=(TimePeriod A, TimePeriod B) => (A.SecondsTotal != B.SecondsTotal);
+        public static TimePeriod operator +(TimePeriod A, TimePeriod B) => (new TimePeriod(A.SecondsTotal + B.SecondsTotal));
+        public static TimePeriod operator -(TimePeriod A, TimePeriod B) => (new TimePeriod(A.SecondsTotal - B.SecondsTotal));
     }
 }
