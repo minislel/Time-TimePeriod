@@ -9,4 +9,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="pngtree-clock-face-no-hand-roboto-font-png-image_5683165.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="pngtree-clock-face-no-hand-roboto-font-png-image_5683165.png" />
+  </ItemGroup>
+
 </Project>

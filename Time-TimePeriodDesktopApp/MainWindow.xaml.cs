@@ -21,10 +21,14 @@ namespace Time_TimePeriodDesktopApp
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Add_New_Clock(object sender, RoutedEventArgs e)
         {
            
         }
-        
+
+        private void Button_MouseEnter(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }
