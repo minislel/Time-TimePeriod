@@ -54,17 +54,39 @@ namespace TimePeriodLibrary
         {
             StringBuilder sb = new StringBuilder("", 8);
             if (Hours < 10)
-            { sb.Append(new char[] {'0', (char)Hours, ':'}); }
+            {
+              sb.Append('0');
+              sb.Append(Hours);
+                sb.Append(':');
+            }
+
             else
-            { sb.Append(new char[] {(char)Hours, ':' }); }
+            { 
+                sb.Append(Hours);
+                sb.Append(':');
+            }
             if (Minutes < 10)
-            { sb.Append(new char[] { '0', (char)Minutes, ':' }); }
+            {
+                sb.Append('0');
+                sb .Append(Minutes);
+                sb.Append(':');
+            }
             else
-            { sb.Append(new char[] { (char)Minutes, ':' }); }
+            { 
+                sb.Append(Minutes);
+                sb.Append(':');
+            }
             if (Seconds < 10)
-            { sb.Append(new char[] { '0', (char)Seconds}); }
+            { 
+              sb.Append("0");
+              sb.Append (Seconds);
+                
+            }
             else
-            { sb.Append(new char[] { (char)Seconds}); }
+            {
+              sb.Append(Seconds);
+                
+            }
             return sb.ToString();
         }
 

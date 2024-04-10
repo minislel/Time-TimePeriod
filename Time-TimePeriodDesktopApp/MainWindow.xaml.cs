@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -16,9 +17,13 @@ namespace Time_TimePeriodDesktopApp
     /// </summary>
     public partial class MainWindow : Window 
     {
-        public byte HH;
-        public byte MM;
-        public byte SS;
+        public string TimeDisplayed
+        {
+            get { return (string)GetValue(TimeDisplayedProperty); }
+            set { SetValue(TimeDisplayedProperty, value); }
+        }
+        public static readonly DependencyProperty TimeDisplayedProperty =
+        DependencyProperty.Register("MyProperty2", typeof(string), typeof(Window), new UIPropertyMetadata(string.Empty));
         public MainWindow()
         {
             InitializeComponent();
@@ -26,9 +31,16 @@ namespace Time_TimePeriodDesktopApp
 
         private void Add_New_Clock(object sender, RoutedEventArgs e)
         {
-           
-           Time clock = new Time();
-            HH = 32;
+            Time clock = new Time(21, 1, 1);
+            TimeDisplayed = clock.ToString();
+            Button button = new Button();
+            button.Height = 30;
+            button.Content = TimeDisplayed;
+            string savedButton = XamlWriter.Save(button);
+
+
+
+
         }
 
         private void Button_MouseEnter(object sender, MouseEventArgs e)
