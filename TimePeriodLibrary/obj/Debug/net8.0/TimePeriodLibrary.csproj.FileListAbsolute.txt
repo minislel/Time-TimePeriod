@@ -1,0 +1,12 @@
+C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\TimePeriodLibrary\bin\Debug\net8.0\TimePeriodLibrary.deps.json
+C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\TimePeriodLibrary\bin\Debug\net8.0\TimePeriodLibrary.dll
+C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\TimePeriodLibrary\bin\Debug\net8.0\TimePeriodLibrary.pdb
+C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\TimePeriodLibrary\obj\Debug\net8.0\TimePeriodLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\TimePeriodLibrary\obj\Debug\net8.0\TimePeriodLibrary.AssemblyInfoInputs.cache
+C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\TimePeriodLibrary\obj\Debug\net8.0\TimePeriodLibrary.AssemblyInfo.cs
+C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\TimePeriodLibrary\obj\Debug\net8.0\TimePeriodLibrary.csproj.CoreCompileInputs.cache
+C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\TimePeriodLibrary\obj\Debug\net8.0\TimePeriodLibrary.sourcelink.json
+C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\TimePeriodLibrary\obj\Debug\net8.0\TimePeriodLibrary.dll
+C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\TimePeriodLibrary\obj\Debug\net8.0\refint\TimePeriodLibrary.dll
+C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\TimePeriodLibrary\obj\Debug\net8.0\TimePeriodLibrary.pdb
+C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\TimePeriodLibrary\obj\Debug\net8.0\ref\TimePeriodLibrary.dll

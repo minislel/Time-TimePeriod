@@ -3,13 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Time-TimePeriodDesktopApp", "Time-TimePeriodDesktopApp\Time-TimePeriodDesktopApp.csproj", "{5355E9E1-CD06-4123-8D08-006E37A1F82D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Time-TimePeriodDesktopApp", "Time-TimePeriodDesktopApp\Time-TimePeriodDesktopApp.csproj", "{5355E9E1-CD06-4123-8D08-006E37A1F82D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeLibrary", "TimeLibrary\TimeLibrary.csproj", "{4A31A2EF-B80F-431D-82B8-06FBA76E6589}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimePeriodLibrary", "TimePeriodLibrary\TimePeriodLibrary.csproj", "{E7326FA4-0A85-46A3-AD3F-6D45B8DFF87C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimePeriodLibrary", "TimePeriodLibrary\TimePeriodLibrary.csproj", "{E7326FA4-0A85-46A3-AD3F-6D45B8DFF87C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "TestProject1\TestProject1.csproj", "{8E44D44B-E581-4675-A3D4-C60137CFC332}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject1", "TestProject1\TestProject1.csproj", "{8E44D44B-E581-4675-A3D4-C60137CFC332}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +19,6 @@ Global
 		{5355E9E1-CD06-4123-8D08-006E37A1F82D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5355E9E1-CD06-4123-8D08-006E37A1F82D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5355E9E1-CD06-4123-8D08-006E37A1F82D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4A31A2EF-B80F-431D-82B8-06FBA76E6589}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4A31A2EF-B80F-431D-82B8-06FBA76E6589}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4A31A2EF-B80F-431D-82B8-06FBA76E6589}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4A31A2EF-B80F-431D-82B8-06FBA76E6589}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E7326FA4-0A85-46A3-AD3F-6D45B8DFF87C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E7326FA4-0A85-46A3-AD3F-6D45B8DFF87C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7326FA4-0A85-46A3-AD3F-6D45B8DFF87C}.Release|Any CPU.ActiveCfg = Release|Any CPU
