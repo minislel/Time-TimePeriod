@@ -31,12 +31,17 @@ namespace Time_TimePeriodDesktopApp
 
         private void Add_New_Clock(object sender, RoutedEventArgs e)
         {
+            StackPanel timeList = this.FindName("timeList") as StackPanel;
+
+            
             Time clock = new Time(21, 1, 1);
             TimeDisplayed = clock.ToString();
             Button button = new Button();
             button.Height = 30;
             button.Content = TimeDisplayed;
-            string savedButton = XamlWriter.Save(button);
+            //button.Click = "GetClock()";
+            timeList.Children.Add(button);
+
 
 
 

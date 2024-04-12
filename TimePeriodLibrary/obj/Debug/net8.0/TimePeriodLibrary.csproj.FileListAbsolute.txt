@@ -10,3 +10,15 @@ C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\TimePeriodLibrary\obj\Debu
 C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\TimePeriodLibrary\obj\Debug\net8.0\refint\TimePeriodLibrary.dll
 C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\TimePeriodLibrary\obj\Debug\net8.0\TimePeriodLibrary.pdb
 C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\TimePeriodLibrary\obj\Debug\net8.0\ref\TimePeriodLibrary.dll
+C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\TimePeriodLibrary\bin\Debug\net8.0\TimePeriodLibrary.deps.json
+C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\TimePeriodLibrary\bin\Debug\net8.0\TimePeriodLibrary.dll
+C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\TimePeriodLibrary\bin\Debug\net8.0\TimePeriodLibrary.pdb
+C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\TimePeriodLibrary\obj\Debug\net8.0\TimePeriodLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\TimePeriodLibrary\obj\Debug\net8.0\TimePeriodLibrary.AssemblyInfoInputs.cache
+C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\TimePeriodLibrary\obj\Debug\net8.0\TimePeriodLibrary.AssemblyInfo.cs
+C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\TimePeriodLibrary\obj\Debug\net8.0\TimePeriodLibrary.csproj.CoreCompileInputs.cache
+C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\TimePeriodLibrary\obj\Debug\net8.0\TimePeriodLibrary.sourcelink.json
+C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\TimePeriodLibrary\obj\Debug\net8.0\TimePeriodLibrary.dll
+C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\TimePeriodLibrary\obj\Debug\net8.0\refint\TimePeriodLibrary.dll
+C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\TimePeriodLibrary\obj\Debug\net8.0\TimePeriodLibrary.pdb
+C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\TimePeriodLibrary\obj\Debug\net8.0\ref\TimePeriodLibrary.dll

@@ -21,7 +21,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Border BorderBrush="#444" BorderThickness="1" Grid.Row="1">
-                <StackPanel Margin="4" >
+                <StackPanel Margin="4" x:Name="timeList">
                     <Button HorizontalAlignment="Left" Width="180" HorizontalContentAlignment="Left" Background="#505050" Mouse.MouseEnter="Button_MouseEnter" Click="Add_New_Clock">
                         <TextBlock
                         Text="Add a new clock"
@@ -33,19 +33,25 @@
             </Border>
             <Border BorderBrush="#444" BorderThickness="1"   Grid.Row="1" Grid.Column="1">
                 <Canvas>
+                    <Border Canvas.Top="204" Canvas.Left="244" CornerRadius="50">
+                        <TextBlock 
+                          Background="Bisque"
+                           FontSize="30" >WITAJ W TIME!</TextBlock>
+                    </Border>
+
                     <Ellipse Stroke="Black" 
                      Grid.Column="1" 
                      Height="220" 
                      Width="220" Canvas.Left="239" Canvas.Top="10" 
-                         >
+                             Visibility="Hidden">
 
                         <Ellipse.Fill>
                             <ImageBrush ImageSource="/pngtree-clock-face-no-hand-roboto-font-png-image_5683165.png"/>
                         </Ellipse.Fill>
                     </Ellipse>
                     <Label Content="{Binding Path=MyProperty2}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Canvas.Left="87" Canvas.Top="241" HorizontalAlignment="Left" VerticalAlignment="Center" Width="524" Height="80" Foreground="#FFD2D2D2" FontSize="36" />
-                    <Button Content="ADD TIMEPERIOD" Canvas.Left="300" Canvas.Top="386" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <Button Content="SUBTRACT TIMEPERIOD" HorizontalAlignment="Left" Canvas.Left="284" Canvas.Top="333" VerticalAlignment="Top"/>
+                    <Button Visibility="Hidden" Content="ADD TIMEPERIOD" Canvas.Left="300" Canvas.Top="386" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Button Visibility ="Hidden" Content="SUBTRACT TIMEPERIOD" HorizontalAlignment="Left" Canvas.Left="284" Canvas.Top="333" VerticalAlignment="Top"/>
 
                 </Canvas>
             </Border>
