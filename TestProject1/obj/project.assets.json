@@ -389,6 +389,16 @@
             "related": ".xml"
           }
         }
+      },
+      "TimePeriodLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/TimePeriodLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TimePeriodLibrary.dll": {}
+        }
       }
     }
   },
@@ -986,6 +996,11 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "TimePeriodLibrary/1.0.0": {
+      "type": "project",
+      "path": "../TimePeriodLibrary/TimePeriodLibrary.csproj",
+      "msbuildProject": "../TimePeriodLibrary/TimePeriodLibrary.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -993,23 +1008,29 @@
       "MSTest.TestAdapter >= 3.1.1",
       "MSTest.TestFramework >= 3.1.1",
       "Microsoft.NET.Test.Sdk >= 17.8.0",
+      "TimePeriodLibrary >= 1.0.0",
       "coverlet.collector >= 6.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\marci\\.nuget\\packages\\": {}
+    "C:\\Users\\SkutecznieUse\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\marci\\Desktop\\projekty studia\\Time-TimePeriod\\TestProject1\\TestProject1.csproj",
+      "projectUniqueName": "C:\\Users\\SkutecznieUse\\Desktop\\studia\\Time-TimePeriod\\TestProject1\\TestProject1.csproj",
       "projectName": "TestProject1",
-      "projectPath": "C:\\Users\\marci\\Desktop\\projekty studia\\Time-TimePeriod\\TestProject1\\TestProject1.csproj",
-      "packagesPath": "C:\\Users\\marci\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\marci\\Desktop\\projekty studia\\Time-TimePeriod\\TestProject1\\obj\\",
+      "projectPath": "C:\\Users\\SkutecznieUse\\Desktop\\studia\\Time-TimePeriod\\TestProject1\\TestProject1.csproj",
+      "packagesPath": "C:\\Users\\SkutecznieUse\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\SkutecznieUse\\Desktop\\studia\\Time-TimePeriod\\TestProject1\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\marci\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\SkutecznieUse\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1017,12 +1038,17 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\SkutecznieUse\\Desktop\\studia\\Time-TimePeriod\\TimePeriodLibrary\\TimePeriodLibrary.csproj": {
+              "projectPath": "C:\\Users\\SkutecznieUse\\Desktop\\studia\\Time-TimePeriod\\TimePeriodLibrary\\TimePeriodLibrary.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

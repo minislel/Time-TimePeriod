@@ -48,3 +48,4 @@ C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\Time-TimePeriodDesktopApp
 C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\Time-TimePeriodDesktopApp\bin\Debug\net8.0-windows\TimePeriodLibrary.pdb
 C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\Time-TimePeriodDesktopApp.csproj.AssemblyReference.cache
 C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\Time-Tim.616FE3DE.Up2Date
+C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\Themes\Generic.baml

@@ -14,15 +14,33 @@ namespace TimePeriodLibrary
         public byte Hours { get { return _hours; } private set { if (value < 24) { _hours = value; } else { throw new ArgumentOutOfRangeException(); } } }
         public byte Minutes { get { return _minutes; } private set { if (value < 60) { _minutes = value; } else { throw new ArgumentOutOfRangeException(); } } }
         public byte Seconds { get { return _seconds; } private set { if (value < 60) { _seconds = value; } else { throw new ArgumentOutOfRangeException(); } } }
+        public int NumberOfSecondsFromMidnight { get { return Hours * 3600 + Minutes * 60 + Seconds; } }
+    
         
 
         public Time(byte HH=0, byte MM=0, byte SS=0)
         {
-            if (HH > 23 || MM > 59 || SS > 59)
+            if (HH > 23 || MM > 59 || SS > 59) 
             { throw new ArgumentOutOfRangeException(); }
             Hours = HH;
             Minutes = MM;
             Seconds = SS;
+        }
+        public Time(int HH = 0, int MM = 0, int SS = 0)
+        {
+            if (HH > 23 || MM > 59 || SS > 59)
+            { throw new ArgumentOutOfRangeException(); }
+            Hours = (byte)HH;
+            Minutes = (byte)MM;
+            Seconds = (byte)SS;
+        }
+        public Time(long SS = 1) 
+        { 
+            if(SS>86400 || SS == 0)
+            { throw new ArgumentOutOfRangeException(); }
+            Hours = (byte)(SS / 3600);
+            Minutes = (byte)((SS %3600) /60);
+            Seconds = (byte)(((SS%3600)%60));
         }
         public Time(string s)
         {
@@ -135,10 +153,12 @@ namespace TimePeriodLibrary
         public static bool operator !=(Time A, Time B) => !A.Equals(B);
 
         public override bool Equals(object? obj)
-        {
-            if (obj == null)
-            { return false; }
-            return Equals(obj);
+        {   
+            if (obj == null) return false;
+            if (obj is Time time)
+            { return Equals(time); }
+
+            return base.Equals(obj);
         }
         public bool Equals(Time other)
         {
@@ -170,6 +190,39 @@ namespace TimePeriodLibrary
         public static void Plus(Time This, TimePeriod TP) => This.Plus(TP);
 
         public static void Minus(Time This, TimePeriod TP) => This.Minus(TP);
+        public static Time operator +(Time This, TimePeriod TP) 
+        {
+            byte HH;
+            byte MM;
+            byte SS;
+            if (This.Hours + TP.Hours < 24) { HH = (byte)(This.Hours + TP.Hours); }
+            else { throw new ArgumentOutOfRangeException(); }
+            if ((byte)(This.Minutes + TP.Minutes) < 60) { MM = (byte)(This.Minutes + TP.Minutes); }
+            else { MM = (byte)((This.Minutes + TP.Minutes) % 60); HH = (byte)(This.Hours + ((This.Minutes + TP.Minutes) / 60)); }
+            if ((byte)(This.Seconds + TP.Seconds) < 60) { SS = (byte)(This.Seconds + TP.Seconds); }
+            else { MM = (byte)(This.Minutes + (TP.Seconds / 60)); SS = (byte)((This.Seconds + TP.Seconds) % 60); }
+            return new Time(HH,MM,SS);
+        }
+        public static Time operator -(Time This, TimePeriod TP)
+        {
+            /*            byte HH;
+                        sbyte MM;
+                        sbyte SS;
+                        if ((sbyte)(This.Hours - TP.Hours) > 0) { HH = (byte)(This.Hours - TP.Hours); }
+                        else { throw new ArgumentOutOfRangeException(); }
+                        if ((sbyte)(This.Minutes - TP.Minutes) > 0) { MM = (sbyte)(This.Minutes - TP.Minutes); }
+                        else { HH -= (byte)Math.Abs(Math.Ceiling((decimal)((This.Minutes - TP.Minutes) / 60))); MM = (sbyte)(This.Minutes -(TP.Minutes % 60)); }
+                        if ((byte)(This.Seconds - TP.Seconds) > 0) { SS = (sbyte)(This.Seconds - TP.Seconds); }
+                        else { MM -= (sbyte)Math.Abs(Math.Ceiling((decimal)(This.Seconds - TP.Seconds) / 60)); SS = (sbyte)(This.Seconds - TP.Seconds % 60); }
+                        return new Time(HH,MM,SS);*/
+
+            long SS = (byte)(This.Hours * 3600 + This.Minutes * 60 + This.Seconds);
+            if (SS < 86400 || SS > 0)
+            { return new Time(SS - TP.SecondsTotal); }
+            else throw new ArgumentOutOfRangeException();
+        }
+        public void Tick() => this.Plus(new TimePeriod(1));
+        
     }
     public struct TimePeriod : IEquatable<TimePeriod>, IComparable<TimePeriod>
     {

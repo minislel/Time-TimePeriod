@@ -22,7 +22,7 @@
             </Grid.ColumnDefinitions>
             <Border BorderBrush="#444" BorderThickness="1" Grid.Row="1">
                 <StackPanel Margin="4" x:Name="timeList">
-                    <Button HorizontalAlignment="Left" Width="180" HorizontalContentAlignment="Left" Background="#505050" Mouse.MouseEnter="Button_MouseEnter" Click="Add_New_Clock">
+                    <Button x:Name="addNew" HorizontalAlignment="Left" Width="180" HorizontalContentAlignment="Left" Background="#505050" Mouse.MouseEnter="Button_MouseEnter" Click="Add_New_Clock">
                         <TextBlock
                         Text="Add a new clock"
                         VerticalAlignment="Center"
@@ -33,26 +33,175 @@
             </Border>
             <Border BorderBrush="#444" BorderThickness="1"   Grid.Row="1" Grid.Column="1">
                 <Canvas>
-                    <Border Canvas.Top="204" Canvas.Left="244" CornerRadius="50">
-                        <TextBlock 
-                          Background="Bisque"
-                           FontSize="30" >WITAJ W TIME!</TextBlock>
-                    </Border>
+                    <Border Canvas.Top="204" Canvas.Left="244" CornerRadius="50"/>
+                    <Popup Name="Popup1"    
+                        Width="450" Height="220" IsOpen="False"
+                                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Time_TimePeriodDesktopApp"
+        mc:Ignorable="d"
+        StaysOpen="True"
+                           PlacementTarget="{Binding ElementName=Welcome}"
+                           >
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="170" />
+                                <RowDefinition Height="*" />
 
-                    <Ellipse Stroke="Black" 
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TabPanel Grid.Row="0" Grid.Column ="0" Background="#272727">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="170"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150"/>
+                                        <ColumnDefinition Width="150"/>
+                                        <ColumnDefinition Width="150"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10 10 10 100" Foreground="#777" FontSize="20">HH</Label>
+                                    <TextBox PreviewTextInput="PreviewTextInput" FontSize="23" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"  Grid.Row="0" x:Name="hh" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Height="30" Width="120"></TextBox>
+                                    <Label  Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10 10 10 100" Foreground="#777" FontSize="20">MM</Label>
+                                    <TextBox PreviewTextInput="PreviewTextInput" FontSize="23" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" Grid.Row="0" x:Name="mm" VerticalAlignment="Center" Grid.Column="1" Height="30" Width="120"></TextBox>
+                                    <Label Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10 10 10 100" Foreground="#777" FontSize="20">SS</Label>
+                                    <TextBox PreviewTextInput="PreviewTextInput"  FontSize="23" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" Grid.Row="0" x:Name="ss" VerticalAlignment="Center" Grid.Column="2" Height="30" Width="120"></TextBox>
+                                </Grid>
+                            </TabPanel>
+                            <TabPanel Grid.Row="2" Grid.Column="0">
+
+                                <Grid Background="#282828">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="225"/>
+                                        <ColumnDefinition Width="225"/>
+
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50"/>
+                                    </Grid.RowDefinitions>
+                                    <Button Width="120" Height="25" Grid.Row="0" Grid.Column="0" Click="OK_Popup_Click">OK</Button>
+                                    <Button Width="120" Height="25" Grid.Row="0" Grid.Column="1" Click="Cancel_Popup_Click" >Cancel</Button>
+
+                                </Grid>
+
+                            </TabPanel>
+
+                        </Grid>
+
+                    </Popup>
+
+                    <Ellipse x:Name="Clock" Stroke="Black" 
                      Grid.Column="1" 
                      Height="220" 
                      Width="220" Canvas.Left="239" Canvas.Top="10" 
-                             Visibility="Hidden">
+                             Visibility="Visible">
 
                         <Ellipse.Fill>
                             <ImageBrush ImageSource="/pngtree-clock-face-no-hand-roboto-font-png-image_5683165.png"/>
                         </Ellipse.Fill>
                     </Ellipse>
-                    <Label Content="{Binding Path=MyProperty2}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Canvas.Left="87" Canvas.Top="241" HorizontalAlignment="Left" VerticalAlignment="Center" Width="524" Height="80" Foreground="#FFD2D2D2" FontSize="36" />
-                    <Button Visibility="Hidden" Content="ADD TIMEPERIOD" Canvas.Left="300" Canvas.Top="386" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <Button Visibility ="Hidden" Content="SUBTRACT TIMEPERIOD" HorizontalAlignment="Left" Canvas.Left="284" Canvas.Top="333" VerticalAlignment="Top"/>
+                    <Button x:Name="secondHand" Background="red" Height="3" Width="82" Canvas.Left="348" Canvas.Top="120" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="-0.002,-0.001">
+                        <Button.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleY="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-90"/>
 
+                            </TransformGroup>
+                        </Button.RenderTransform>
+                    </Button>
+                    <Button x:Name="minuteHand" Background="Gray" Height="5" Width="63" Canvas.Left="349" Canvas.Top="122" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="-0.002,-0.001">
+                        <Button.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleY="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-90"/>
+
+                            </TransformGroup>
+                        </Button.RenderTransform>
+                    </Button>
+                    <Button x:Name="hourHand" Background="Black" Height="5" Width="45" Canvas.Left="349" Canvas.Top="121" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="-0.002,-0.001">
+                        <Button.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleY="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-90"/>
+
+                            </TransformGroup>
+                        </Button.RenderTransform>
+                    </Button>
+
+
+                    <Label x:Name="TimeDisplayed" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Canvas.Left="87" Canvas.Top="280" HorizontalAlignment="Left" VerticalAlignment="Top" Width="524" Height="80" Foreground="#FFD2D2D2" FontSize="36" >
+                    </Label>
+                    <Button Visibility="Visible" Content="ADD TIMEPERIOD" Canvas.Left="366" Canvas.Top="401" HorizontalAlignment="Center" VerticalAlignment="Top" Width="160" Click="Add_TimePeriod"/>
+                    <Button Visibility ="Visible" Content="SUBTRACT TIMEPERIOD" HorizontalAlignment="Center" Canvas.Left="172" Canvas.Top="401" VerticalAlignment="Top" Width="160" Click="Subtract_TimePeriod"/>
+                    <TextBlock x:Name="Welcome"
+                          Background="Bisque"
+                           FontSize="30" HorizontalAlignment="Center" Canvas.Left="172" Canvas.Top="235" VerticalAlignment="Top" ><Run Text="Welcome to the Time App!"/></TextBlock>
+                    <Popup Name="Popup2"
+                        Width="450" Height="220" IsOpen="False"
+                                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Time_TimePeriodDesktopApp"
+        mc:Ignorable="d"
+        StaysOpen="True"
+                           PlacementTarget="{Binding ElementName=Welcome}"
+                           >
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="170" />
+                                <RowDefinition Height="*" />
+
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TabPanel Grid.Row="0" Grid.Column ="0" Background="#272727">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="170"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150"/>
+                                        <ColumnDefinition Width="150"/>
+                                        <ColumnDefinition Width="150"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10 10 10 100" Foreground="#777" FontSize="20">HH</Label>
+                                    <TextBox PreviewTextInput="PreviewTextInput" FontSize="23" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"  Grid.Row="0" x:Name="hhTP" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Height="30" Width="120"></TextBox>
+                                    <Label  Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10 10 10 100" Foreground="#777" FontSize="20">MM</Label>
+                                    <TextBox PreviewTextInput="PreviewTextInput" FontSize="23" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" Grid.Row="0" x:Name="mmTP" VerticalAlignment="Center" Grid.Column="1" Height="30" Width="120"></TextBox>
+                                    <Label Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10 10 10 100" Foreground="#777" FontSize="20">SS</Label>
+                                    <TextBox PreviewTextInput="PreviewTextInput"  FontSize="23" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" Grid.Row="0" x:Name="ssTP" VerticalAlignment="Center" Grid.Column="2" Height="30" Width="120"></TextBox>
+                                </Grid>
+                            </TabPanel>
+                            <TabPanel Grid.Row="2" Grid.Column="0">
+
+                                <Grid Background="#282828">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="225"/>
+                                        <ColumnDefinition Width="225"/>
+
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50"/>
+                                    </Grid.RowDefinitions>
+                                    <Button Width="120" Height="25" Grid.Row="0" Grid.Column="0" Click="OK_Popup_TP_Click">OK</Button>
+                                    <Button Width="120" Height="25" Grid.Row="0" Grid.Column="1" Click="Cancel_Popup_TP_Click" >Cancel</Button>
+
+                                </Grid>
+
+                            </TabPanel>
+
+                        </Grid>
+
+                    </Popup>
                 </Canvas>
             </Border>
         </Grid>
