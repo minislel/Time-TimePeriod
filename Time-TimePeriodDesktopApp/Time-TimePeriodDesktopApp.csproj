@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="clock-face.png" />
     <None Remove="pngtree-clock-face-no-hand-roboto-font-png-image_5683165.png" />
   </ItemGroup>
 
@@ -18,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="clock-face.png" />
     <Resource Include="pngtree-clock-face-no-hand-roboto-font-png-image_5683165.png" />
   </ItemGroup>
 
