@@ -38,13 +38,9 @@ namespace Time_TimePeriodDesktopApp
 
         private void Add_New_Clock(object sender, RoutedEventArgs e)
         {
-            
             Welcome.Visibility = Visibility.Hidden;
-            Ellipse clockDisplay = this.FindName("Clock") as Ellipse;
-            clockDisplay.Visibility = Visibility.Visible;
+            Clock.Visibility = Visibility.Visible;
             Popup1.IsOpen = true;
-            
-
         }
 
         private void Button_MouseEnter(object sender, MouseEventArgs e)
@@ -54,25 +50,20 @@ namespace Time_TimePeriodDesktopApp
 
         private void Cancel_Popup_Click(object sender, RoutedEventArgs e)
         {
-            
             Popup1.IsOpen = false;
-
             hh.Text= string.Empty;
             mm.Text= string.Empty;
             ss.Text= string.Empty;
         }
         private void newClock(byte HH, byte MM, byte SS)
         {
-            
-            
-
             Time clock = new Time(HH, MM, SS);
             Clocks.Add(clock);
             CurrentClock = clock;
             TimeDisplayed.Content = clock.ToString();
             Button button = new Button();
             button.Height = 30;
-            button.DataContext = clock;
+            button.DataContext = CurrentClock;
             Binding binding = new Binding();
             binding.Path = new PropertyPath("");
             binding.StringFormat = "{}{0}";
@@ -83,9 +74,7 @@ namespace Time_TimePeriodDesktopApp
         }
         private void DisplayClock(object sender, RoutedEventArgs e)
         {
-            
             Button senderButton = sender as Button;
-
             if (senderButton.DataContext is Time time) 
             {
                CurrentClock = time;
@@ -100,19 +89,16 @@ namespace Time_TimePeriodDesktopApp
             var nowMilliseconds = (int)now.TimeOfDay.TotalMilliseconds;
             var timerInterval = constantInterval - nowMilliseconds % constantInterval + 5;
             dispatcherTimer.Interval = TimeSpan.FromMilliseconds(timerInterval);
-            int dd = Clocks.Count;
             for (int i = 0; i < Clocks.Count; i++)
             {
                 Clocks[i] = Clocks[i] + new TimePeriod(1);
             }
-            
             foreach (Button button in timeList.Children)
             {
                 if (button.DataContext is Time time)
                 {
                     time = time + new TimePeriod(1);
                     button.DataContext = time;
-                    
                 }
             }
             if(CurrentClockSet == true)
@@ -122,10 +108,7 @@ namespace Time_TimePeriodDesktopApp
                 hourHand.RenderTransform = new RotateTransform(-90+(CurrentClock.NumberOfSecondsFromMidnight / 3600));
                 minuteHand.RenderTransform = new RotateTransform(-90 + (CurrentClock.Minutes));
                 secondHand.RenderTransform = new RotateTransform(-90 + (CurrentClock.Seconds));
-
-
             }
-
         }
         private void OK_Popup_Click(object sender, RoutedEventArgs e)
         {
@@ -152,13 +135,21 @@ namespace Time_TimePeriodDesktopApp
         }
         private void OK_Popup_TP_Click(object sender, RoutedEventArgs e) 
         {
-            
             byte HHByte = hhTP.Text == string.Empty ? (byte)0 : byte.Parse(hhTP.Text);
             byte MMByte = mmTP.Text == string.Empty ? (byte)0 : byte.Parse(mmTP.Text);
             byte SSByte = ssTP.Text == string.Empty ? (byte)0 : byte.Parse(ssTP.Text);
+            foreach (Button button in timeList.Children)
+            {
+                if (button.DataContext is Time time && time == CurrentClock)
+                {
+                    button.DataContext = null; // Reset DataContext
+                    button.DataContext = CurrentClock; // Set DataContext to updated CurrentClock
+                }
+            }
             if (Addition) 
             { CurrentClock = CurrentClock + new TimePeriod(HHByte, MMByte, SSByte); }
             else { CurrentClock = CurrentClock - new TimePeriod(HHByte, MMByte, SSByte); }
+
             Popup2.IsOpen = false;
             hhTP.Text = string.Empty;
             mmTP.Text = string.Empty;
@@ -166,9 +157,7 @@ namespace Time_TimePeriodDesktopApp
         }
         private void Cancel_Popup_TP_Click(object sender, RoutedEventArgs e)
         {
-
             Popup2.IsOpen = false;
-
             hh.Text = string.Empty;
             mm.Text = string.Empty;
             ss.Text = string.Empty;

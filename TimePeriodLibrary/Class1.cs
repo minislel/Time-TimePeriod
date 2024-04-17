@@ -171,55 +171,40 @@ namespace TimePeriodLibrary
 
         public void Plus(TimePeriod TP)
         {
-            if ((byte)(this.Hours + TP.Hours) < 24) { Hours = (byte)(this.Hours + TP.Hours); }
-            else { throw new ArgumentOutOfRangeException(); }
-            if((byte)(this.Minutes + TP.Minutes)<60) { Minutes = (byte)(this.Minutes + TP.Minutes); }
-            else { Minutes = (byte)((this.Minutes + TP.Minutes)%60); Hours = (byte)(this.Hours + ((this.Minutes + TP.Minutes) / 60)); }
-            if ((byte)(this.Seconds + TP.Seconds) < 60) { Seconds = (byte)(this.Seconds + TP.Seconds); }
-            else { Minutes = (byte)(this.Minutes + (TP.Seconds / 60)); Seconds = (byte)((this.Seconds + TP.Seconds) % 60); }
+            int totalSeconds = NumberOfSecondsFromMidnight + (int)TP.SecondsTotal;
+            int newHours = totalSeconds / 3600 % 24;
+            int newMinutes = (totalSeconds % 3600) / 60;
+            int newSeconds = totalSeconds % 60;
+            _hours = (byte)newHours;
+            _minutes = (byte)newMinutes;
+            _seconds = (byte)newSeconds;
         }
         public void Minus(TimePeriod TP)
         {
-            if ((sbyte)(this.Hours - TP.Hours) > 0) { Hours = (byte)(this.Hours - TP.Hours); }
-            else { throw new ArgumentOutOfRangeException(); }
-            if ((sbyte)(this.Minutes - TP.Minutes) > 0) { Minutes = (byte)(this.Minutes - TP.Minutes); }
-            else { Hours -= (byte)Math.Abs(Math.Ceiling((decimal)((this.Minutes - TP.Minutes)/60))); Minutes -= (byte)(TP.Minutes % 60); }
-            if ((byte)(this.Seconds - TP.Seconds) > 0) { Seconds = (byte)(this.Seconds - TP.Seconds); }
-            else { Minutes -= (byte)Math.Abs(Math.Ceiling((decimal)(this.Seconds - TP.Seconds)/60)); Seconds -= (byte)(TP.Seconds % 60); }
+            int totalSeconds = NumberOfSecondsFromMidnight - (int)TP.SecondsTotal;
+            if (totalSeconds < 0)
+            {
+                totalSeconds += 24 * 3600; 
+            }
+            int newHours = totalSeconds / 3600 % 24;
+            int newMinutes = (totalSeconds % 3600) / 60;
+            int newSeconds = totalSeconds % 60;
+            _hours = (byte)newHours;
+            _minutes = (byte)newMinutes;
+            _seconds = (byte)newSeconds;
         }
         public static void Plus(Time This, TimePeriod TP) => This.Plus(TP);
 
         public static void Minus(Time This, TimePeriod TP) => This.Minus(TP);
         public static Time operator +(Time This, TimePeriod TP) 
         {
-            byte HH;
-            byte MM;
-            byte SS;
-            if (This.Hours + TP.Hours < 24) { HH = (byte)(This.Hours + TP.Hours); }
-            else { throw new ArgumentOutOfRangeException(); }
-            if ((byte)(This.Minutes + TP.Minutes) < 60) { MM = (byte)(This.Minutes + TP.Minutes); }
-            else { MM = (byte)((This.Minutes + TP.Minutes) % 60); HH = (byte)(This.Hours + ((This.Minutes + TP.Minutes) / 60)); }
-            if ((byte)(This.Seconds + TP.Seconds) < 60) { SS = (byte)(This.Seconds + TP.Seconds); }
-            else { MM = (byte)(This.Minutes + (TP.Seconds / 60)); SS = (byte)((This.Seconds + TP.Seconds) % 60); }
-            return new Time(HH,MM,SS);
+            This.Plus(TP);
+            return This;
         }
         public static Time operator -(Time This, TimePeriod TP)
         {
-            /*            byte HH;
-                        sbyte MM;
-                        sbyte SS;
-                        if ((sbyte)(This.Hours - TP.Hours) > 0) { HH = (byte)(This.Hours - TP.Hours); }
-                        else { throw new ArgumentOutOfRangeException(); }
-                        if ((sbyte)(This.Minutes - TP.Minutes) > 0) { MM = (sbyte)(This.Minutes - TP.Minutes); }
-                        else { HH -= (byte)Math.Abs(Math.Ceiling((decimal)((This.Minutes - TP.Minutes) / 60))); MM = (sbyte)(This.Minutes -(TP.Minutes % 60)); }
-                        if ((byte)(This.Seconds - TP.Seconds) > 0) { SS = (sbyte)(This.Seconds - TP.Seconds); }
-                        else { MM -= (sbyte)Math.Abs(Math.Ceiling((decimal)(This.Seconds - TP.Seconds) / 60)); SS = (sbyte)(This.Seconds - TP.Seconds % 60); }
-                        return new Time(HH,MM,SS);*/
-
-            long SS = (byte)(This.Hours * 3600 + This.Minutes * 60 + This.Seconds);
-            if (SS < 86400 || SS > 0)
-            { return new Time(SS - TP.SecondsTotal); }
-            else throw new ArgumentOutOfRangeException();
+            This.Minus(TP);
+            return This;
         }
         public void Tick() => this.Plus(new TimePeriod(1));
         
@@ -306,23 +291,6 @@ namespace TimePeriodLibrary
         }
         public override string ToString()
         {
-            /*            long H = SecondsTotal / 3600;
-                        long M = SecondsTotal / 60;
-                        long S = SecondsTotal;
-                        if (SecondsTotal % 3600 > 0)
-                        {
-                            M = (SecondsTotal % 3600) / 60;
-                            if ((SecondsTotal % 3600) % 60 > 0)
-                                { S = (SecondsTotal % 3600) % 60; }
-                            else { SecondsTotal = 0; }
-                        }
-                        else if (SecondsTotal % 60 > 0)
-                        {
-                            M = SecondsTotal / 60;
-                            S = SecondsTotal % 60;
-                        }
-                        else
-                         { S = SecondsTotal; }*/
             return $"{Hours}:{Minutes}:{Seconds}";
         }
         public void Plus(TimePeriod other) => this.SecondsTotal += other.SecondsTotal;

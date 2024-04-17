@@ -134,8 +134,6 @@
                             </TransformGroup>
                         </Button.RenderTransform>
                     </Button>
-
-
                     <Label x:Name="TimeDisplayed" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Canvas.Left="87" Canvas.Top="280" HorizontalAlignment="Left" VerticalAlignment="Top" Width="524" Height="80" Foreground="#FFD2D2D2" FontSize="36" >
                     </Label>
                     <Button Visibility="Visible" Content="ADD TIMEPERIOD" Canvas.Left="366" Canvas.Top="401" HorizontalAlignment="Center" VerticalAlignment="Top" Width="160" Click="Add_TimePeriod"/>

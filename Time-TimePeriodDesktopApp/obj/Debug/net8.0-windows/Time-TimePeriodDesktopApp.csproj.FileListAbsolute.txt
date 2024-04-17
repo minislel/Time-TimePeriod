@@ -1,51 +1,26 @@
-C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\Time-TimePeriodDesktopApp\bin\Debug\net8.0-windows\Time-TimePeriodDesktopApp.exe
-C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\Time-TimePeriodDesktopApp\bin\Debug\net8.0-windows\Time-TimePeriodDesktopApp.deps.json
-C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\Time-TimePeriodDesktopApp\bin\Debug\net8.0-windows\Time-TimePeriodDesktopApp.runtimeconfig.json
-C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\Time-TimePeriodDesktopApp\bin\Debug\net8.0-windows\Time-TimePeriodDesktopApp.dll
-C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\Time-TimePeriodDesktopApp\bin\Debug\net8.0-windows\Time-TimePeriodDesktopApp.pdb
-C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\MainWindow.g.cs
-C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\App.g.cs
-C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\Time-TimePeriodDesktopApp_MarkupCompile.cache
-C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\Time-TimePeriodDesktopApp_MarkupCompile.lref
-C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\MainWindow.baml
-C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\Time-TimePeriodDesktopApp.g.resources
-C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\Time-TimePeriodDesktopApp.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\Time-TimePeriodDesktopApp.AssemblyInfoInputs.cache
-C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\Time-TimePeriodDesktopApp.AssemblyInfo.cs
-C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\Time-TimePeriodDesktopApp.csproj.CoreCompileInputs.cache
-C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\Time-TimePeriodDesktopApp.sourcelink.json
-C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\Time-TimePeriodDesktopApp.dll
-C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\refint\Time-TimePeriodDesktopApp.dll
-C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\Time-TimePeriodDesktopApp.pdb
-C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\Time-TimePeriodDesktopApp.genruntimeconfig.cache
-C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\ref\Time-TimePeriodDesktopApp.dll
 C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\Time-TimePeriodDesktopApp\bin\Debug\net8.0-windows\Time-TimePeriodDesktopApp.exe
 C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\Time-TimePeriodDesktopApp\bin\Debug\net8.0-windows\Time-TimePeriodDesktopApp.deps.json
 C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\Time-TimePeriodDesktopApp\bin\Debug\net8.0-windows\Time-TimePeriodDesktopApp.runtimeconfig.json
 C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\Time-TimePeriodDesktopApp\bin\Debug\net8.0-windows\Time-TimePeriodDesktopApp.dll
 C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\Time-TimePeriodDesktopApp\bin\Debug\net8.0-windows\Time-TimePeriodDesktopApp.pdb
+C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\Time-TimePeriodDesktopApp\bin\Debug\net8.0-windows\TimePeriodLibrary.dll
+C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\Time-TimePeriodDesktopApp\bin\Debug\net8.0-windows\TimePeriodLibrary.pdb
+C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\Time-TimePeriodDesktopApp.csproj.AssemblyReference.cache
 C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\MainWindow.g.cs
 C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\App.g.cs
 C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\Time-TimePeriodDesktopApp_MarkupCompile.cache
 C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\Time-TimePeriodDesktopApp_MarkupCompile.lref
 C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\MainWindow.baml
+C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\Themes\Generic.baml
 C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\Time-TimePeriodDesktopApp.g.resources
 C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\Time-TimePeriodDesktopApp.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\Time-TimePeriodDesktopApp.AssemblyInfoInputs.cache
 C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\Time-TimePeriodDesktopApp.AssemblyInfo.cs
 C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\Time-TimePeriodDesktopApp.csproj.CoreCompileInputs.cache
 C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\Time-TimePeriodDesktopApp.sourcelink.json
+C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\Time-Tim.616FE3DE.Up2Date
 C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\Time-TimePeriodDesktopApp.dll
 C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\refint\Time-TimePeriodDesktopApp.dll
 C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\Time-TimePeriodDesktopApp.pdb
 C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\Time-TimePeriodDesktopApp.genruntimeconfig.cache
 C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\ref\Time-TimePeriodDesktopApp.dll
-C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\Time-TimePeriodDesktopApp\bin\Debug\net8.0-windows\TimePeriodLibrary.dll
-C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\Time-TimePeriodDesktopApp\bin\Debug\net8.0-windows\TimePeriodLibrary.pdb
-C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\Time-TimePeriodDesktopApp.csproj.AssemblyReference.cache
-C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\Time-Tim.616FE3DE.Up2Date
-C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\Time-TimePeriodDesktopApp\bin\Debug\net8.0-windows\TimePeriodLibrary.dll
-C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\Time-TimePeriodDesktopApp\bin\Debug\net8.0-windows\TimePeriodLibrary.pdb
-C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\Time-TimePeriodDesktopApp.csproj.AssemblyReference.cache
-C:\Users\marci\Desktop\projekty studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\Time-Tim.616FE3DE.Up2Date
-C:\Users\SkutecznieUse\Desktop\studia\Time-TimePeriod\Time-TimePeriodDesktopApp\obj\Debug\net8.0-windows\Themes\Generic.baml
