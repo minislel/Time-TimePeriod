@@ -121,32 +121,33 @@
                                     <ImageBrush ImageSource="/pngtree-clock-face-no-hand-roboto-font-png-image_5683165.png"/>
                                 </Ellipse.Fill>
                             </Ellipse>
-                            <Button  x:Name="secondHand" Background="red" Height="3" Width="82" Canvas.Left="348" Canvas.Top="120" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="-0.002,-0.001">
+                            <Button  x:Name="secondHand" Background="red" Height="3" Width="82" Canvas.Left="349" Canvas.Top="120" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="0,0.5">
                                 <Button.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform ScaleY="-1"/>
                                         <SkewTransform/>
                                         <RotateTransform Angle="-90"/>
-
+                                        <TranslateTransform X="0" Y="0"/>
                                     </TransformGroup>
                                 </Button.RenderTransform>
                             </Button>
-                            <Button  x:Name="minuteHand" Background="Gray" Height="5" Width="63" Canvas.Left="349" Canvas.Top="122" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="-0.002,-0.001">
+                            <Button  x:Name="minuteHand" Background="Gray" Height="5" Width="64" Canvas.Left="350" Canvas.Top="121" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="-0.001,0.474">
                                 <Button.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform ScaleY="-1"/>
                                         <SkewTransform/>
                                         <RotateTransform Angle="-90"/>
-
+                                        <TranslateTransform X="0" Y="0"/>
                                     </TransformGroup>
                                 </Button.RenderTransform>
                             </Button>
-                            <Button x:Name="hourHand" Background="Black" Height="5" Width="45" Canvas.Left="349" Canvas.Top="121" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="-0.002,-0.001">
+                            <Button x:Name="hourHand" Background="Black" Height="5" Width="44" Canvas.Left="350" Canvas.Top="120" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-0.008,0.514">
                                 <Button.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform ScaleY="-1"/>
                                         <SkewTransform/>
                                         <RotateTransform Angle="-90"/>
+                                        <TranslateTransform X="0" Y="0"/>
                                     </TransformGroup>
                                 </Button.RenderTransform>
                             </Button>
@@ -207,6 +208,7 @@
                                 </Grid>
                             </Popup>
                             <Rectangle Visibility="Hidden" x:Name="PopupAnchor" Height="9" Canvas.Left="133" Stroke="Black" Canvas.Top="199" Width="16"/>
+                            <Ellipse Height="16" Canvas.Left="341" Canvas.Top="112" Width="16" Stroke="Black" Fill="Black" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                         </Canvas>
                     </Border>
                 </Grid>
@@ -233,7 +235,7 @@
                                     <ImageBrush ImageSource="/clock-face.png"/>
                                 </Ellipse.Fill>
                             </Ellipse>
-                            <Button Visibility="Visible" x:Name="SWSecondHand" Background="Gray" Height="5" Width="80" Canvas.Left="439" Canvas.Top="154" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="-0.002,-0.001">
+                            <Button Visibility="Visible" x:Name="SWSecondHand" Background="Gray" Height="5" Width="80" Canvas.Left="437" Canvas.Top="154" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="-0.002,-0.001">
                                 <Button.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform ScaleY="-1"/>
@@ -242,7 +244,7 @@
                                     </TransformGroup>
                                 </Button.RenderTransform>
                             </Button>
-                            <Button Visibility="Visible" x:Name="SWMSHand" Background="red" Height="5" Width="117" Canvas.Left="439" Canvas.Top="154" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="-0.002,-0.001">
+                            <Button Visibility="Visible" x:Name="SWMSHand" Background="red" Height="5" Width="117" Canvas.Left="437" Canvas.Top="154" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="-0.002,-0.001">
                                 <Button.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform ScaleY="-1"/>
@@ -255,6 +257,7 @@
                             <Button Content="RESET" x:Name="SWReset" Canvas.Left="536" Padding="10" Canvas.Top="405" HorizontalAlignment="Left" VerticalAlignment="Top" Click="SWReset_Click"/>
                             <Label x:Name="SWTime" Content="{Binding SW}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Canvas.Left="174" Canvas.Top="307" HorizontalAlignment="Left" VerticalAlignment="Top" Width="524" Height="80" Foreground="#FFD2D2D2" FontSize="36" >
                             </Label>
+                            <Ellipse Height="13" Canvas.Left="430" Stroke="Black" Canvas.Top="147" Width="13" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="Black"/>
                         </Canvas>
                     </Border>
                 </Grid>

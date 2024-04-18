@@ -8,8 +8,11 @@ namespace TimePeriodLibrary
 {
     public struct Time : IEquatable<Time>, IComparable<Time>
     {
-        //TODO
-        // revert changes to tp, add more constructors to tp (string), testy konstruktora, wiecej testow, ZMIANA static plus i minus, poprawa implementacji ms
+        //Zmienne składowe
+        //zmienne Hours, Minutes oraz Seconds zwracają część godzin, minut, lub sekund
+        //zmienna NumberOfSecondsFromMidnight zwraca ilość sekund od północy, przydatne w obliczeniach
+        //zmienna Id została dodana na potrzeby wykonania programu z zadania dodatkowego
+        #region Zmienne składowe
         private byte _hours = 0;
         private byte _minutes = 0;
         private byte _seconds;
@@ -19,8 +22,9 @@ namespace TimePeriodLibrary
         public int NumberOfSecondsFromMidnight { get { return Hours * 3600 + Minutes * 60 + Seconds; } }
 
         public int Id { get; set; }
-
-
+        #endregion
+        //Konstruktory
+        #region Konstruktory
         public Time(byte HH=0, byte MM=0, byte SS=0)
         {
             if (HH > 23 || MM > 59 || SS > 59) 
@@ -39,7 +43,7 @@ namespace TimePeriodLibrary
             Seconds = (byte)SS;
             Id = Guid.NewGuid().GetHashCode();
         }
-        public Time(long SS = 1) 
+        public Time(long SS = 0) 
         { 
             if(SS>86400)
             { throw new ArgumentOutOfRangeException(); }
@@ -75,6 +79,9 @@ namespace TimePeriodLibrary
             Seconds = SS;
             Id = Guid.NewGuid().GetHashCode();
         }
+        #endregion
+        //Nadpisanie ToString
+        #region ToString
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder("", 8);
@@ -114,14 +121,20 @@ namespace TimePeriodLibrary
             }
             return sb.ToString();
         }
-
-        public int CompareTo(Time other) => (this == other ? 0 : (this > other ? -1 : 1));
+        #endregion
+        //Implementacja IComparable
+        public int CompareTo(Time other) => (this == other ? 0 : (this > other ? 1 : -1));
+        //Operatory Relacyjne
+        #region Operatory relacyjne
         public static bool operator <(Time A, Time B) => (A.NumberOfSecondsFromMidnight < B.NumberOfSecondsFromMidnight);
         public static bool operator >(Time A, Time B) => (A.NumberOfSecondsFromMidnight > B.NumberOfSecondsFromMidnight);
         public static bool operator >=(Time A, Time B) => A == B ? true : A > B;
         public static bool operator <=(Time A, Time B) => A == B ? true : A < B;
         public static bool operator ==(Time A, Time B) => A.Equals(B);
         public static bool operator !=(Time A, Time B) => !A.Equals(B);
+        #endregion
+        //Implementacja IEquatable
+        #region IEquatable
         public override bool Equals(object? obj)
         {   
             if (obj == null) return false;
@@ -131,6 +144,9 @@ namespace TimePeriodLibrary
         }
         public bool Equals(Time other) => this.NumberOfSecondsFromMidnight == other.NumberOfSecondsFromMidnight;
         public override int GetHashCode() => (int)Hours ^ (int)Minutes ^ (int)Seconds;
+        #endregion
+        //Działania arytmetyczne
+        #region arytmetyka
         public void Plus(TimePeriod TP)
         {
             int totalSeconds = NumberOfSecondsFromMidnight + (int)TP.SecondsTotal;
@@ -155,9 +171,18 @@ namespace TimePeriodLibrary
             _minutes = (byte)newMinutes;
             _seconds = (byte)newSeconds;
         }
-        public static void Plus(Time This, TimePeriod TP) => This.Plus(TP);
 
-        public static void Minus(Time This, TimePeriod TP) => This.Minus(TP);
+        public static Time Plus(Time This, TimePeriod TP)
+        { 
+            This.Plus(TP);
+            return This;
+        }
+
+        public static Time Minus(Time This, TimePeriod TP)
+        {
+            This.Minus(TP);
+            return This;
+        }
         public static Time operator +(Time This, TimePeriod TP) 
         {
             This.Plus(TP);
@@ -168,12 +193,15 @@ namespace TimePeriodLibrary
             This.Minus(TP);
             return This;
         }
-        public void Tick() => this.Plus(new TimePeriod(1));
-        
+        #endregion
     }
     public struct TimePeriod : IEquatable<TimePeriod>, IComparable<TimePeriod>
     {
-
+        //zmienne składowe
+        //_seconds przechowuje liczbę sekund
+        //SecondsTotal ją zwraca
+        //Seconds, Minutes oraz Hours Zwracają daną część godziny po odpowiednich obliczeniach modulo
+        #region zmienne składowe
         private long _seconds;
         public long SecondsTotal
         {
@@ -191,15 +219,7 @@ namespace TimePeriodLibrary
         {
             get
             {
-                if (SecondsTotal % 3600 > 0)
-                {
-                    return (SecondsTotal % 3600) % 60;
-                }
-                else if (SecondsTotal % 60 > 0)
-                {
-                    return SecondsTotal % 60;
-                }
-                else return SecondsTotal;
+                return (SecondsTotal % 3600) % 60;
             }
         }
         public long Minutes
@@ -213,6 +233,9 @@ namespace TimePeriodLibrary
         {
             get { return SecondsTotal / 3600; }
         }
+        #endregion
+        //konstruktory
+        #region konstruktory
         public TimePeriod(long seconds)
         {
             SecondsTotal = seconds;
@@ -227,10 +250,8 @@ namespace TimePeriodLibrary
         }
         public TimePeriod(Time A, Time B)
         {
-            long H = Math.Abs(A.Hours - B.Hours);
-            long M = Math.Abs(A.Minutes - B.Minutes);
-            long S = Math.Abs(A.Seconds - B.Seconds);
-            SecondsTotal = H * 3600 + M * 60 + S;
+            SecondsTotal = Math.Abs(A.NumberOfSecondsFromMidnight - B.NumberOfSecondsFromMidnight);
+            
         }
 
         public TimePeriod(string input)
@@ -253,7 +274,9 @@ namespace TimePeriodLibrary
             }
             else throw new ArgumentException("invalid input string format");
         }
-
+        #endregion
+        //nadpisanie ToString
+        #region ToString
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder("", 8);
@@ -293,24 +316,38 @@ namespace TimePeriodLibrary
             }
             return sb.ToString();
         }
-
-
+        #endregion
+        //Działania arytmetyczne
+        #region arytmetyka
         public void Plus(TimePeriod other) => this.SecondsTotal += other.SecondsTotal;
         public void Minus(TimePeriod other) => this.SecondsTotal -= other.SecondsTotal;
-        public static void Plus(TimePeriod This, TimePeriod other) => This.SecondsTotal += other.SecondsTotal;
-        public static void Minus(TimePeriod This, TimePeriod other) => This.SecondsTotal -= other.SecondsTotal;
-        public int CompareTo(TimePeriod other) => (this.SecondsTotal == other.SecondsTotal ? 0 : (this.SecondsTotal > other.SecondsTotal ? -1 : 1));
+        public static TimePeriod Plus(TimePeriod This, TimePeriod other)
+        { 
+            This.Plus(other);
+            return This;
+        }
+        public static TimePeriod Minus(TimePeriod This, TimePeriod other)
+        {
+            This.Minus(other);
+            return This;
+        }
+        #endregion
+        //Implementacja IComparable
+        public int CompareTo(TimePeriod other) => (this.SecondsTotal == other.SecondsTotal ? 0 : (this.SecondsTotal > other.SecondsTotal ? 1 : -1));
+        //Implementacja IEquatable
+        #region IEquatable
         public override bool Equals(object? obj)
         {
-            if (obj == null)
-            { return false; }
-            return Equals(obj);
+            if (obj == null) return false;
+            if (obj is TimePeriod time)
+            { return Equals(time); }
+            return base.Equals(obj);
         }
-
         public bool Equals(TimePeriod other) => (this.SecondsTotal == other.SecondsTotal);
-
         public override int GetHashCode() => this.SecondsTotal.GetHashCode();
-
+        #endregion
+        //operatory relacyjne
+        #region operatory relacyjne
         public static bool operator <(TimePeriod A, TimePeriod B) => (A.SecondsTotal < B.SecondsTotal);
         public static bool operator >(TimePeriod A, TimePeriod B) => (A.SecondsTotal > B.SecondsTotal);
         public static bool operator <=(TimePeriod A, TimePeriod B) => (A.SecondsTotal <= B.SecondsTotal);
@@ -319,7 +356,9 @@ namespace TimePeriodLibrary
         public static bool operator !=(TimePeriod A, TimePeriod B) => (A.SecondsTotal != B.SecondsTotal);
         public static TimePeriod operator +(TimePeriod A, TimePeriod B) => (new TimePeriod(A.SecondsTotal + B.SecondsTotal));
         public static TimePeriod operator -(TimePeriod A, TimePeriod B) => (new TimePeriod(A.SecondsTotal - B.SecondsTotal));
-
+        #endregion
+        // Dołożenie obsługi milisekund
+        #region milisekundy
         public long Milliseconds
         { get; set; }
         public void MSTick()
@@ -386,5 +425,6 @@ namespace TimePeriodLibrary
             return this.ToString();
             
         }
+        #endregion 
     }
 }

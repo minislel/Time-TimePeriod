@@ -23,10 +23,7 @@ namespace Time_TimePeriodDesktopApp
         DispatcherTimer dispatcherTimerSW = new System.Windows.Threading.DispatcherTimer(priority: DispatcherPriority.Send);
         DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer(priority:DispatcherPriority.Send);
         public ObservableCollection<Time> Clocks { get; set; } = new ObservableCollection<Time>();
-        
-        
         public bool CurrentClockSet = false;
-        
         public bool Addition;
         public TimePeriod SW;
         public bool SWRunning = false;
@@ -41,11 +38,6 @@ namespace Time_TimePeriodDesktopApp
             }
         }
         public int CurrentClockID { get; set; }
-
-        
-
-        
-
         public MainWindow()
         {
             InitializeComponent();
@@ -85,14 +77,17 @@ namespace Time_TimePeriodDesktopApp
 
         private void DisplayClock(object sender, RoutedEventArgs e)
         {
-            Button senderButton = sender as Button;
-            if (senderButton.Tag is int clockId)
+            if (sender is Button senderButton && senderButton.Tag is int clockId)
             {
                 CurrentClock = Clocks.FirstOrDefault(c => c.Id == clockId);
                 CurrentClockID = clockId;
+                TimeDisplayed.Content = Clocks.FirstOrDefault(c => c.Id == CurrentClockID);
+                hourHand.RenderTransform = new RotateTransform(-90 + ((CurrentClock.Hours) * 30) + (CurrentClock.Minutes / 2.0));
+                minuteHand.RenderTransform = new RotateTransform(-90 + (CurrentClock.Minutes) * 6 + (CurrentClock.Seconds / 10.0));
+                secondHand.RenderTransform = new RotateTransform(-90 + (CurrentClock.Seconds * 6));
             }
         }
-        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        private void dispatcherTimer_Tick(object? sender, EventArgs e)
         {
             const int constantInterval = 1000;
             var now = DateTime.Now;
@@ -113,7 +108,7 @@ namespace Time_TimePeriodDesktopApp
             }
 
         }
-        private void dispatcherTimerSW_Tick(object sender, EventArgs e) 
+        private void dispatcherTimerSW_Tick(object? sender, EventArgs e) 
         {
             SWTime.Content = SW.ToString("ms");
             SWSecondHand.RenderTransform = new RotateTransform(-90 + (SW.Seconds * 6)+(SW.Milliseconds / 20));
@@ -138,7 +133,7 @@ namespace Time_TimePeriodDesktopApp
             ss.Text = string.Empty;
         }
 
-        private void PreviewTextInput(object sender, TextCompositionEventArgs e)
+        private new void PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
@@ -185,17 +180,9 @@ namespace Time_TimePeriodDesktopApp
             { SW = new TimePeriod(0); }
             
         }
-
         private void SWStart_Click(object sender, RoutedEventArgs e)
         {
             SWRunning = !SWRunning; 
         }
-
-
-
-
-
-
-
     }
 }

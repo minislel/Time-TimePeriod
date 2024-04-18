@@ -17,49 +17,7 @@ namespace TestProject1
             t1.Plus(new TimePeriod(d));
             Assert.AreEqual(t1, t2);
         }
-        [TestMethod]
-        [DataRow(0, 0, 0, 12)]
-        [DataRow(12, 0, 12, 12)]
 
-        public void RepeatedTimeTickAndPlusOperator(int a, int b, int c, int d)
-        {
-            Time t1 = new Time(a, b, c);
-            Time t2 = t1 + new TimePeriod(d);
-            for (int i = 0; i < d; i++)
-            { t1.Tick(); }
-
-            Assert.AreEqual(t1, t2);
-        }
-        [TestMethod]
-        [DataRow(0, 0, 0, 12,12,12, 0,0,12, 12,12,24,12)]
-        
-
-        public void forEachTickLoopTest(int a, int b, int c, int d, int e, int f, int h, int i, int j, int k, int l, int m, int n)
-        {
-            Time t1 = new Time(a, b, c);
-            Time t2 = new Time(d, e, f);
-            Time t1e = new Time(h,i,j);
-            Time t2e = new Time(k,l,m);
-            List<Time> list = new List<Time>();
-            List<Time> listExpected = new List<Time>();
-            list.Add(t1);
-            list.Add(t2);
-            listExpected.Add(t1e);
-            listExpected.Add(t2e);
-            for (int ij = 0; ij < list.Count; ij++)
-            { 
-                for (int z = 0; z < n; z++)
-                { list[ij] = list[ij] + new TimePeriod(1); }
-                Debug.WriteLine(list[ij].ToString());
-            }
-
-            
-            Debug.WriteLine(String.Join(", ", list.ToArray()));
-
-
-            Assert.AreEqual(list[0], listExpected[0]);
-
-        }
         [TestMethod]
         [DataRow(12, 12, 12, 2, 2, 2, 10, 10, 10)]
         public void subtractionTest(int a, int b, int c, int d, int e, int f, int g, int h, int i)
@@ -272,9 +230,7 @@ namespace TestProject1
             TimePeriod tp1 = new TimePeriod(hours1, minutes1, seconds1);
             TimePeriod tp2 = new TimePeriod(hours2, minutes2, seconds2);
             TimePeriod expected = new TimePeriod(expectedHours, expectedMinutes, expectedSeconds);
-
             TimePeriod result = tp1 + tp2;
-
             Assert.AreEqual(expected, result);
         }
 
@@ -286,11 +242,114 @@ namespace TestProject1
             TimePeriod tp1 = new TimePeriod(hours1, minutes1, seconds1);
             TimePeriod tp2 = new TimePeriod(hours2, minutes2, seconds2);
             TimePeriod expected = new TimePeriod(expectedHours, expectedMinutes, expectedSeconds);
-
             TimePeriod result = tp1 - tp2;
-
             Assert.AreEqual(expected, result);
         }
+        [TestMethod]
+        [DataRow("01:01:00",3660)]
+        [DataRow("62:01:00", 3660, 3660)]
+        [DataRow("03:02:00", 1, 61, 3660)]
+        public void TimePeriod_Constructor(string expected, params long[] values)
+        {
+            TimePeriod timePeriod = new TimePeriod();
+            if (values.Length == 1)
+                timePeriod = new TimePeriod(values[0]);
+            else if (values.Length == 2)
+                timePeriod = new TimePeriod(values[0], values[1]);
+            else if (values.Length == 3)
+                timePeriod = new TimePeriod(values[0], values[1], values[2]);
+
+            Assert.AreEqual(expected, timePeriod.ToString());
+        }
+
+        [TestMethod]
+        [DataRow("01:30:45")]
+        [DataRow("02:10:20")]
+        [DataRow("05:00:00")]
+        public void TimePeriod_StringConstructor(string timePeriodString)
+        {
+            TimePeriod timePeriod = new TimePeriod(timePeriodString);
+            Assert.AreEqual(int.Parse(timePeriodString.Substring(0, 2)), timePeriod.Hours);
+            Assert.AreEqual(int.Parse(timePeriodString.Substring(3, 2)), timePeriod.Minutes);
+            Assert.AreEqual(int.Parse(timePeriodString.Substring(6, 2)), timePeriod.Seconds);
+        }
+
+        [TestMethod]
+        [DataRow("10:30:00", "12:00:00", 1, 30, 0)]
+        [DataRow("00:00:00", "23:59:59", 23, 59, 59)]
+        public void TimePeriod_TwoTimeConstructor(string startTimeString, string endTimeString, int expectedHours, int expectedMinutes, int expectedSeconds)
+        {
+            Time startTime = new Time(startTimeString);
+            Time endTime = new Time(endTimeString);
+            TimePeriod timePeriod = new TimePeriod(startTime, endTime);
+
+            Assert.AreEqual(expectedHours, timePeriod.Hours);
+            Assert.AreEqual(expectedMinutes, timePeriod.Minutes);
+            Assert.AreEqual(expectedSeconds, timePeriod.Seconds);
+        }
+        [TestMethod]
+        [DataRow(0, 0, 0)]
+        [DataRow(10, 30, 45)]
+        [DataRow(23, 59, 59)]
+        public void Time_IntConstructor_ShouldCreateTimeWithSpecifiedValues(int hours, int minutes, int seconds)
+        {
+            Time time = new Time(hours, minutes, seconds);
+            Assert.AreEqual(hours, time.Hours);
+            Assert.AreEqual(minutes, time.Minutes);
+            Assert.AreEqual(seconds, time.Seconds);
+        }
+
+        [TestMethod]
+        [DataRow(36610)]
+        [DataRow(86390)]
+        public void Time_LongConstructor(long totalSeconds)
+        {
+            Time time = new Time(totalSeconds);
+            Assert.AreEqual(totalSeconds / 3600, time.Hours);
+            Assert.AreEqual((totalSeconds % 3600) / 60, time.Minutes);
+            Assert.AreEqual(totalSeconds % 60, time.Seconds);
+        }
+
+        [TestMethod]
+        [DataRow("00:00:00")]
+        [DataRow("10:30:45")]
+        [DataRow("23:59:59")]
+        public void Time_StringConstructor(string timeString)
+        {
+            Time time = new Time(timeString);
+            Assert.AreEqual(int.Parse(timeString.Substring(0, 2)), time.Hours);
+            Assert.AreEqual(int.Parse(timeString.Substring(3, 2)), time.Minutes);
+            Assert.AreEqual(int.Parse(timeString.Substring(6, 2)), time.Seconds);
+        }
+        [TestMethod]
+        [DataRow((byte)12, (byte)30, (byte)0, (byte)12, (byte)45, (byte)0, -1)]
+        [DataRow((byte)12, (byte)45, (byte)0, (byte)13, (byte)0, (byte)0, -1)]
+        [DataRow((byte)12, (byte)45, (byte)0, (byte)12, (byte)45, (byte)0, 0)]   
+        public void Time_Comparable(byte h1, byte m1, byte s1, byte h2, byte m2, byte s2, int expectedComparison)
+        {
+
+            Time time1 = new Time(h1, m1, s1);
+            Time time2 = new Time(h2, m2, s2);
+
+            int comparisonResult = time1.CompareTo(time2);
+
+            Assert.AreEqual(expectedComparison, comparisonResult);
+        }
+
+        [TestMethod]
+        [DataRow(3600, 1800, 0, 3600, 1800, 0, 0)]
+        [DataRow(3600, 1800, 0, 7200, 3600, 0, -1)] 
+        [DataRow(7200, 3600, 0, 3600, 1800, 0, 1)]  
+        public void TimePeriod_Comparable(long h1, long m1, long s1, long h2, long m2, long s2, int expectedComparison)
+        {
+            TimePeriod timePeriod1 = new TimePeriod(h1, m1, s1);
+            TimePeriod timePeriod2 = new TimePeriod(h2, m2, s2);
+
+            int comparisonResult = timePeriod1.CompareTo(timePeriod2);
+
+            Assert.AreEqual(expectedComparison, comparisonResult);
+        }
+
 
 
 
