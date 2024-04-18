@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace TimePeriodLibrary
 {
-    public static class TPMSExtention
+    public static class TimeExtension
     {
-
+        public static bool isRunning = false;
     }
 }

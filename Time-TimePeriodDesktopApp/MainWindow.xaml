@@ -31,7 +31,7 @@
                     </Grid.ColumnDefinitions>
                     <Border BorderBrush="#444" BorderThickness="1" Grid.Row="1">
                         <StackPanel Margin="4" x:Name="timeList">
-                            <Button x:Name="addNew" HorizontalAlignment="Left" Width="180" HorizontalContentAlignment="Left" Background="#505050" Mouse.MouseEnter="Button_MouseEnter" Click="Add_New_Clock">
+                            <Button x:Name="addNew" HorizontalAlignment="Left" Width="180" HorizontalContentAlignment="Left" Background="#505050" Click="Add_New_Clock">
                                 <TextBlock
                         Text="Add a new clock"
                         VerticalAlignment="Center"
@@ -48,10 +48,11 @@
                         </StackPanel>
                     </Border>
                     <Border BorderBrush="#444" BorderThickness="1"   Grid.Row="1" Grid.Column="1">
-                        <Canvas>
+                        <Canvas x:Name="canvas">
                             <Border Canvas.Top="204" Canvas.Left="244" CornerRadius="50"/>
                             <Popup Name="Popup1"    
                         Width="450" Height="220" IsOpen="False"
+                                   Canvas.Left="500"
                                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -59,7 +60,8 @@
         xmlns:local="clr-namespace:Time_TimePeriodDesktopApp"
         mc:Ignorable="d"
         StaysOpen="True"
-                           PlacementTarget="{Binding ElementName=Welcome}"
+                                   
+                           PlacementTarget="{Binding ElementName=PopupAnchor}"
                            >
                                 <Grid>
                                     <Grid.RowDefinitions>
@@ -145,7 +147,6 @@
                                         <ScaleTransform ScaleY="-1"/>
                                         <SkewTransform/>
                                         <RotateTransform Angle="-90"/>
-
                                     </TransformGroup>
                                 </Button.RenderTransform>
                             </Button>
@@ -160,7 +161,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Time_TimePeriodDesktopApp"
-        mc:Ignorable="d"
+        mc:Ignorable="d" PlacementTarget="{Binding ElementName=PopupAnchor}"
         StaysOpen="True">
                                 <Grid>
                                     <Grid.RowDefinitions>
@@ -205,6 +206,7 @@
                                     </TabPanel>
                                 </Grid>
                             </Popup>
+                            <Rectangle Visibility="Hidden" x:Name="PopupAnchor" Height="9" Canvas.Left="133" Stroke="Black" Canvas.Top="199" Width="16"/>
                         </Canvas>
                     </Border>
                 </Grid>
@@ -257,93 +259,7 @@
                     </Border>
                 </Grid>
             </TabItem>
-            <TabItem>
-                <TabItem.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <Ellipse Margin="3 0 5 0" Width="10" Height="10" Fill="DarkGray"/>
-                        <TextBlock>Timer</TextBlock>
-                    </StackPanel>
-                </TabItem.Header>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="180" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Border BorderBrush="#444" BorderThickness="1" Grid.Row="1" Margin="10 10 0 10">
-                        <StackPanel Margin="4" x:Name="TimerList">
-                            <Button x:Name="addNewTimer" HorizontalAlignment="Left" Width="180" HorizontalContentAlignment="Left" Background="#505050" Mouse.MouseEnter="Button_MouseEnter" Click="addNewTimer_Click">
-                                <TextBlock
-                        Text="Add a new Timer"
-                        VerticalAlignment="Center"
-                        HorizontalAlignment="Left"
-                        />
-                            </Button>
-                            <ItemsControl ItemsSource="{Binding Timers}">
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <Button x:Name="DisplayTimer" Height="30" Content="{Binding}" Tag="{Binding Id}"  Click="DisplayTimer_Click"/>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
-                        </StackPanel>
-                    </Border>
-                    <Popup Name="Popup1Timer"
-                        Width="450" Height="220" IsOpen="False"
-                                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Time_TimePeriodDesktopApp"
-        mc:Ignorable="d"
-        StaysOpen="True">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="170" />
-                                <RowDefinition Height="*" />
 
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <TabPanel Grid.Row="0" Grid.Column ="0" Background="#272727">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="170"/>
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="150"/>
-                                        <ColumnDefinition Width="150"/>
-                                        <ColumnDefinition Width="150"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Label Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10 10 10 100" Foreground="#777" FontSize="20">HH</Label>
-                                    <TextBox PreviewTextInput="PreviewTextInput" FontSize="23" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"  Grid.Row="0" x:Name="hhTimer" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Height="30" Width="120"></TextBox>
-                                    <Label  Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10 10 10 100" Foreground="#777" FontSize="20">MM</Label>
-                                    <TextBox PreviewTextInput="PreviewTextInput" FontSize="23" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" Grid.Row="0" x:Name="mmTimer" VerticalAlignment="Center" Grid.Column="1" Height="30" Width="120"></TextBox>
-                                    <Label Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10 10 10 100" Foreground="#777" FontSize="20">SS</Label>
-                                    <TextBox PreviewTextInput="PreviewTextInput"  FontSize="23" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" Grid.Row="0" x:Name="ssTimer" VerticalAlignment="Center" Grid.Column="2" Height="30" Width="120"></TextBox>
-                                </Grid>
-                            </TabPanel>
-                            <TabPanel Grid.Row="2" Grid.Column="0">
-                                <Grid Background="#282828">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="225"/>
-                                        <ColumnDefinition Width="225"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="50"/>
-                                    </Grid.RowDefinitions>
-                                    <Button Width="120" Height="25" Grid.Row="0" Grid.Column="0" Click="OK_Popup_Timer_Click">OK</Button>
-                                    <Button Width="120" Height="25" Grid.Row="0" Grid.Column="1" Click="Cancel_Popup_Timer_Click" >Cancel</Button>
-                                </Grid>
-                            </TabPanel>
-                        </Grid>
-                    </Popup>
-                </Grid>
-            </TabItem>
         </TabControl>
     </Border>
 </Window>

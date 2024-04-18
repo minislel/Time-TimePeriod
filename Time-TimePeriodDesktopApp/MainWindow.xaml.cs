@@ -23,10 +23,10 @@ namespace Time_TimePeriodDesktopApp
         DispatcherTimer dispatcherTimerSW = new System.Windows.Threading.DispatcherTimer(priority: DispatcherPriority.Send);
         DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer(priority:DispatcherPriority.Send);
         public ObservableCollection<Time> Clocks { get; set; } = new ObservableCollection<Time>();
-        public ObservableCollection<Time> Timers { get; set; } = new ObservableCollection<Time>();
+        
         
         public bool CurrentClockSet = false;
-        public bool CurrentTimerSet = false;
+        
         public bool Addition;
         public TimePeriod SW;
         public bool SWRunning = false;
@@ -41,16 +41,9 @@ namespace Time_TimePeriodDesktopApp
             }
         }
         public int CurrentClockID { get; set; }
-        private Time _currentTimer;
-        public Time CurrentTimer
-        {
-            get { return Clocks.FirstOrDefault(c => c.Id == CurrentClockID); }
-            set
-            {
-                _currentClock = value;
-            }
-        }
-        public int CurrentTimerID { get; set; }
+
+        
+
         
 
         public MainWindow()
@@ -73,10 +66,6 @@ namespace Time_TimePeriodDesktopApp
             Popup1.IsOpen = true;
         }
 
-        private void Button_MouseEnter(object sender, MouseEventArgs e)
-        {
-
-        }
 
         private void Cancel_Popup_Click(object sender, RoutedEventArgs e)
         {
@@ -93,14 +82,7 @@ namespace Time_TimePeriodDesktopApp
             CurrentClockID = clock.Id;
             CurrentClockSet = true;
         }
-        private void newTimer(byte HH, byte MM, byte SS)
-        { 
-            Time timer = new Time(HH, MM, SS);
-            Timers.Add(timer);
-            CurrentTimer = timer;
-            CurrentTimerID = timer.Id;
-            CurrentTimerSet = true;
-        }
+
         private void DisplayClock(object sender, RoutedEventArgs e)
         {
             Button senderButton = sender as Button;
@@ -121,11 +103,6 @@ namespace Time_TimePeriodDesktopApp
             {
                 Clocks[i] = Clocks[i] + new TimePeriod(1);
             }
-            for (int i = 0; i < Timers.Count; i++)
-            {
-                Timers[i] = Timers[i] - new TimePeriod(1);
-            }
-
 
             if (CurrentClockSet)
             {
@@ -134,10 +111,7 @@ namespace Time_TimePeriodDesktopApp
                 minuteHand.RenderTransform = new RotateTransform(-90 + (CurrentClock.Minutes)*6 + (CurrentClock.Seconds / 10.0));
                 secondHand.RenderTransform = new RotateTransform(-90 + (CurrentClock.Seconds*6));
             }
-            if (CurrentTimerSet)
-            { 
-                
-            }
+
         }
         private void dispatcherTimerSW_Tick(object sender, EventArgs e) 
         {
@@ -218,33 +192,10 @@ namespace Time_TimePeriodDesktopApp
         }
 
 
-        private void DisplayTimer_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
 
-        private void addNewTimer_Click(object sender, RoutedEventArgs e)
-        {
-            Popup1Timer.IsOpen = true;
-        }
-        private void OK_Popup_Timer_Click(object sender, RoutedEventArgs e)
-        {
-            byte HHByte = hhTimer.Text == string.Empty ? (byte)0 : byte.Parse(hhTimer.Text);
-            byte MMByte = mmTimer.Text == string.Empty ? (byte)0 : byte.Parse(mmTimer.Text);
-            byte SSByte = ssTimer.Text == string.Empty ? (byte)0 : byte.Parse(ssTimer.Text);
-            newTimer(HHByte, MMByte, SSByte);
-            Popup1Timer.IsOpen = false;
-            hhTimer.Text = string.Empty;
-            mmTimer.Text = string.Empty;
-            ssTimer.Text = string.Empty;
 
-        }
-        private void Cancel_Popup_Timer_Click(object sender, RoutedEventArgs e)
-        {
-            Popup1Timer.IsOpen = false;
-            hhTimer.Text = string.Empty;
-            mmTimer.Text = string.Empty;
-            ssTimer.Text = string.Empty;
-        }
+
+
     }
 }
