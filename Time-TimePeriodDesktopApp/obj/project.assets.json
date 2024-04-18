@@ -27,24 +27,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\SkutecznieUse\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "D:\\Users\\marcin.swiderski\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\SkutecznieUse\\Desktop\\studia\\Time-TimePeriod\\Time-TimePeriodDesktopApp\\Time-TimePeriodDesktopApp.csproj",
+      "projectUniqueName": "D:\\Users\\marcin.swiderski\\Desktop\\Time-TimePeriod\\Time-TimePeriodDesktopApp\\Time-TimePeriodDesktopApp.csproj",
       "projectName": "Time-TimePeriodDesktopApp",
-      "projectPath": "C:\\Users\\SkutecznieUse\\Desktop\\studia\\Time-TimePeriod\\Time-TimePeriodDesktopApp\\Time-TimePeriodDesktopApp.csproj",
-      "packagesPath": "C:\\Users\\SkutecznieUse\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\SkutecznieUse\\Desktop\\studia\\Time-TimePeriod\\Time-TimePeriodDesktopApp\\obj\\",
+      "projectPath": "D:\\Users\\marcin.swiderski\\Desktop\\Time-TimePeriod\\Time-TimePeriodDesktopApp\\Time-TimePeriodDesktopApp.csproj",
+      "packagesPath": "D:\\Users\\marcin.swiderski\\.nuget\\packages\\",
+      "outputPath": "D:\\Users\\marcin.swiderski\\Desktop\\Time-TimePeriod\\Time-TimePeriodDesktopApp\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\SkutecznieUse\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "D:\\Users\\marcin.swiderski\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -58,8 +53,8 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "C:\\Users\\SkutecznieUse\\Desktop\\studia\\Time-TimePeriod\\TimePeriodLibrary\\TimePeriodLibrary.csproj": {
-              "projectPath": "C:\\Users\\SkutecznieUse\\Desktop\\studia\\Time-TimePeriod\\TimePeriodLibrary\\TimePeriodLibrary.csproj"
+            "D:\\Users\\marcin.swiderski\\Desktop\\Time-TimePeriod\\TimePeriodLibrary\\TimePeriodLibrary.csproj": {
+              "projectPath": "D:\\Users\\marcin.swiderski\\Desktop\\Time-TimePeriod\\TimePeriodLibrary\\TimePeriodLibrary.csproj"
             }
           }
         }
@@ -97,7 +92,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

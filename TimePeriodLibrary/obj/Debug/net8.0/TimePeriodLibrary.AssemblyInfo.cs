@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TimePeriodLibrary")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4625fbb5e628df2c2006d53e44de81d6a3fb407a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d63ba339650aa064221d0710f30f80285b4bb372")]
 [assembly: System.Reflection.AssemblyProductAttribute("TimePeriodLibrary")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TimePeriodLibrary")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -8,13 +8,11 @@ namespace TimePeriodLibrary
 {
     public struct Time : IEquatable<Time>, IComparable<Time>
     {
-        
+        //TODO
+        // revert changes to tp, add more constructors to tp (string), testy konstruktora, wiecej testow, ZMIANA static plus i minus, poprawa implementacji ms
         private byte _hours = 0;
         private byte _minutes = 0;
         private byte _seconds;
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
         public byte Hours { get { return _hours; } private set { if (value < 24) { _hours = value;  } else { throw new ArgumentOutOfRangeException(); } } }
         public byte Minutes { get { return _minutes; } private set { if (value < 60) { _minutes = value;  } else { throw new ArgumentOutOfRangeException(); } } }
         public byte Seconds { get { return _seconds; } private set { if (value < 60) { _seconds = value;  } else { throw new ArgumentOutOfRangeException(); } } }
@@ -175,209 +173,128 @@ namespace TimePeriodLibrary
     }
     public struct TimePeriod : IEquatable<TimePeriod>, IComparable<TimePeriod>
     {
-        /*        private long _miliseconds;
-                public long Miliseconds
-                { get; private set; }
-                private long _seconds;
-                public long SecondsTotal
-                {
-                    get
-                    {
-                        return _seconds;
-                    }
-                    private set
-                    {
-                        _seconds = value;
-                    }
-                }
 
-                public long Seconds
-                {
-                    get
-                    {
-                        if (SecondsTotal % 3600 > 0)
-                        {
-                            return (SecondsTotal % 3600) % 60;
-                        }
-                        else if (SecondsTotal % 60 > 0)
-                        {
-                            return SecondsTotal % 60;
-                        }
-                        else return SecondsTotal;
-                    }
-                }
-                public long Minutes
-                {
-                    get
-                    {
-                        return SecondsTotal % 3600 / 60;
-                    }
-                }
-                public long Hours
-                {
-                    get { return SecondsTotal / 3600; }
-                }
-                public TimePeriod(long seconds)
-                {
-                    SecondsTotal = seconds;
-                }
-                public TimePeriod(long minutes, long seconds)
-                {
-                    SecondsTotal = seconds + minutes * 60;
-                }
-                public TimePeriod(long hours, long minutes, long seconds, long milliseconds)
-                {
-                    SecondsTotal = seconds + minutes * 60 + hours * 3600 + milliseconds/1000;
-                }
-                public TimePeriod(Time A, Time B)
-                {
-                    long H = Math.Abs(A.Hours - B.Hours);
-                    long M = Math.Abs(A.Minutes - B.Minutes);
-                    long S = Math.Abs(A.Seconds - B.Seconds);
-                    SecondsTotal = H * 3600 + M * 60 + S;
-                }
-
-                public TimePeriod(string input)
-                {
-                    long H;
-                    long M;
-                    long S;
-                    string[] strings = input.Split(":");
-                    if (strings.Length == 3 && long.TryParse(strings[0], out H) && long.TryParse(strings[1], out M) && long.TryParse(strings[2], out S))
-                    {
-                        SecondsTotal = S + M * 60 + H * 3600;
-                    }
-                    else if (strings.Length == 2 && long.TryParse(strings[0], out M) && long.TryParse(strings[1], out S))
-                    {
-                        SecondsTotal = S + M * 60;
-                    }
-                    else if (strings.Length == 1 && long.TryParse(strings[0], out S))
-                    {
-                        SecondsTotal = S;
-                    }
-                    else throw new ArgumentException("invalid input string format");
-                }
-                public override string ToString()
-                {
-                    return $"{Hours}:{Minutes}:{Seconds}";
-                }*/
         private long _seconds;
-        private long _milliseconds;
-        public int Id { get; set; }
         public long SecondsTotal
         {
-            get { return _seconds; }
-            private set { _seconds = value; }
-        }
-
-
-        public long Milliseconds
-        {
-            get { return _milliseconds; }
-            private set { 
-                if (value>=1000)
-                { _milliseconds = 0;
-                    SecondsTotal++;
-                }
-                else { _milliseconds = value; } 
+            get
+            {
+                return _seconds;
+            }
+            private set
+            {
+                _seconds = value;
             }
         }
 
         public long Seconds
         {
-            get { return SecondsTotal % 60; }
+            get
+            {
+                if (SecondsTotal % 3600 > 0)
+                {
+                    return (SecondsTotal % 3600) % 60;
+                }
+                else if (SecondsTotal % 60 > 0)
+                {
+                    return SecondsTotal % 60;
+                }
+                else return SecondsTotal;
+            }
         }
-
         public long Minutes
         {
-            get { return SecondsTotal / 60 % 60; }
+            get
+            {
+                return SecondsTotal % 3600 / 60;
+            }
         }
-
         public long Hours
         {
-            get { return SecondsTotal / (60 * 60); }
-        }
-
-        public TimePeriod(long seconds, long milliseconds)
-        {
-            SecondsTotal = seconds;
-            Milliseconds = milliseconds;
-            Id = Guid.NewGuid().GetHashCode();
-        }
-
-        public TimePeriod(long hours, long minutes, long seconds)
-        {
-            SecondsTotal = seconds + minutes * 60 + hours*3600;
-            Id = Guid.NewGuid().GetHashCode();
-        }
-
-        public TimePeriod(long hours, long minutes, long seconds, long milliseconds)
-        {
-            SecondsTotal = seconds + minutes * 60 + hours * 3600;
-            Milliseconds = milliseconds;
-            Id = Guid.NewGuid().GetHashCode();
+            get { return SecondsTotal / 3600; }
         }
         public TimePeriod(long seconds)
         {
             SecondsTotal = seconds;
-            Id = Guid.NewGuid().GetHashCode();
         }
-
+        public TimePeriod(long minutes, long seconds)
+        {
+            SecondsTotal = seconds + minutes * 60;
+        }
+        public TimePeriod(long hours, long minutes, long seconds)
+        {
+            SecondsTotal = seconds + minutes * 60 + hours * 3600;
+        }
         public TimePeriod(Time A, Time B)
         {
             long H = Math.Abs(A.Hours - B.Hours);
             long M = Math.Abs(A.Minutes - B.Minutes);
             long S = Math.Abs(A.Seconds - B.Seconds);
-            
             SecondsTotal = H * 3600 + M * 60 + S;
-            Milliseconds = SecondsTotal*1000;
-            Id = Guid.NewGuid().GetHashCode();
         }
-        
+
         public TimePeriod(string input)
         {
             long H;
             long M;
             long S;
-            long MS;
             string[] strings = input.Split(":");
             if (strings.Length == 3 && long.TryParse(strings[0], out H) && long.TryParse(strings[1], out M) && long.TryParse(strings[2], out S))
             {
                 SecondsTotal = S + M * 60 + H * 3600;
-                Milliseconds = 0;
             }
             else if (strings.Length == 2 && long.TryParse(strings[0], out M) && long.TryParse(strings[1], out S))
             {
                 SecondsTotal = S + M * 60;
-                Milliseconds = 0;
             }
             else if (strings.Length == 1 && long.TryParse(strings[0], out S))
             {
                 SecondsTotal = S;
-                Milliseconds = 0;
             }
-            else if (strings.Length == 4 && long.TryParse(strings[0], out H) && long.TryParse(strings[1], out M) && long.TryParse(strings[2], out S) && long.TryParse(strings[3], out MS))
-            {
-                SecondsTotal = S + M * 60 + H * 3600;
-                Milliseconds = MS;
-            }
-            else
-            {
-                throw new ArgumentException("invalid input string format");
-            }
+            else throw new ArgumentException("invalid input string format");
         }
 
         public override string ToString()
         {
-            return $"{Hours}:{Minutes}:{Seconds}";
+            StringBuilder sb = new StringBuilder("", 8);
+            if (Hours < 10)
+            {
+                sb.Append('0');
+                sb.Append(Hours);
+                sb.Append(':');
+            }
+
+            else
+            {
+                sb.Append(Hours);
+                sb.Append(':');
+            }
+            if (Minutes < 10)
+            {
+                sb.Append('0');
+                sb.Append(Minutes);
+                sb.Append(':');
+            }
+            else
+            {
+                sb.Append(Minutes);
+                sb.Append(':');
+            }
+            if (Seconds < 10)
+            {
+                sb.Append("0");
+                sb.Append(Seconds);
+
+            }
+            else
+            {
+                sb.Append(Seconds);
+
+            }
+            return sb.ToString();
         }
-        public string ToString(string format)
-        { 
-        if (format == "ms")
-                return $"{Hours}:{Minutes}:{Seconds}:{Milliseconds}";
-            return $"{Hours}:{Minutes}:{Seconds}";
-        }
-        public void MSTick() => this.Milliseconds++;
+
+
         public void Plus(TimePeriod other) => this.SecondsTotal += other.SecondsTotal;
         public void Minus(TimePeriod other) => this.SecondsTotal -= other.SecondsTotal;
         public static void Plus(TimePeriod This, TimePeriod other) => This.SecondsTotal += other.SecondsTotal;
@@ -402,5 +319,72 @@ namespace TimePeriodLibrary
         public static bool operator !=(TimePeriod A, TimePeriod B) => (A.SecondsTotal != B.SecondsTotal);
         public static TimePeriod operator +(TimePeriod A, TimePeriod B) => (new TimePeriod(A.SecondsTotal + B.SecondsTotal));
         public static TimePeriod operator -(TimePeriod A, TimePeriod B) => (new TimePeriod(A.SecondsTotal - B.SecondsTotal));
+
+        public long Milliseconds
+        { get; set; }
+        public void MSTick()
+        {
+            Milliseconds++;
+            if (Milliseconds == 100)
+            {
+                this.SecondsTotal++;
+                Milliseconds = 0;
+            }
+
+        }
+        public string ToString(string format)
+        {
+            if (format == "ms")
+            {
+                StringBuilder sb = new StringBuilder("", 12);
+                if (Hours < 10)
+                {
+                    sb.Append('0');
+                    sb.Append(Hours);
+                    sb.Append(':');
+                }
+
+                else
+                {
+                    sb.Append(Hours);
+                    sb.Append(':');
+                }
+                if (Minutes < 10)
+                {
+                    sb.Append('0');
+                    sb.Append(Minutes);
+                    sb.Append(':');
+                }
+                else
+                {
+                    sb.Append(Minutes);
+                    sb.Append(':');
+                }
+                if (Seconds < 10)
+                {
+                    sb.Append("0");
+                    sb.Append(Seconds);
+                    sb.Append(':');
+                }
+                else
+                {
+                    sb.Append(Seconds);
+                    sb.Append(':');
+                }
+                if (Milliseconds < 10)
+                {
+                    sb.Append("0");
+                    sb.Append(Milliseconds);
+                }
+                else
+                {
+                        sb.Append(Milliseconds);
+                }
+
+                return sb.ToString();
+            }
+            return this.ToString();
+            
+        }
     }
 }

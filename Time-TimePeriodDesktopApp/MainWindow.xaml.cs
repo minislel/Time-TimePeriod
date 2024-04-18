@@ -23,12 +23,13 @@ namespace Time_TimePeriodDesktopApp
         DispatcherTimer dispatcherTimerSW = new System.Windows.Threading.DispatcherTimer(priority: DispatcherPriority.Send);
         DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer(priority:DispatcherPriority.Send);
         public ObservableCollection<Time> Clocks { get; set; } = new ObservableCollection<Time>();
-        public ObservableCollection<TimePeriod> Timers { get; set; } = new ObservableCollection<TimePeriod>();
+        public ObservableCollection<Time> Timers { get; set; } = new ObservableCollection<Time>();
         
         public bool CurrentClockSet = false;
+        public bool CurrentTimerSet = false;
         public bool Addition;
         public TimePeriod SW;
-        public bool SWRunning;
+        public bool SWRunning = false;
         
         private Time _currentClock;
         public Time CurrentClock
@@ -40,8 +41,17 @@ namespace Time_TimePeriodDesktopApp
             }
         }
         public int CurrentClockID { get; set; }
-
-        private TimePeriod _currentStopWatch;
+        private Time _currentTimer;
+        public Time CurrentTimer
+        {
+            get { return Clocks.FirstOrDefault(c => c.Id == CurrentClockID); }
+            set
+            {
+                _currentClock = value;
+            }
+        }
+        public int CurrentTimerID { get; set; }
+        
 
         public MainWindow()
         {
@@ -56,18 +66,8 @@ namespace Time_TimePeriodDesktopApp
             SW = new TimePeriod(0);
 
         }
-        private void Add_New_Stopwatch(object sender, RoutedEventArgs e)
-        { 
-            
-        
-        }
         private void Add_New_Clock(object sender, RoutedEventArgs e)
         {
-            Clock.Visibility = Visibility.Visible;
-            TimeDisplayed.Visibility = Visibility.Visible;
-            hourHand.Visibility = Visibility.Visible;
-            minuteHand.Visibility = Visibility.Visible;
-            secondHand.Visibility = Visibility.Visible;
             addTP.Visibility = Visibility.Visible;
             subtractTP.Visibility = Visibility.Visible;
             Popup1.IsOpen = true;
@@ -93,6 +93,14 @@ namespace Time_TimePeriodDesktopApp
             CurrentClockID = clock.Id;
             CurrentClockSet = true;
         }
+        private void newTimer(byte HH, byte MM, byte SS)
+        { 
+            Time timer = new Time(HH, MM, SS);
+            Timers.Add(timer);
+            CurrentTimer = timer;
+            CurrentTimerID = timer.Id;
+            CurrentTimerSet = true;
+        }
         private void DisplayClock(object sender, RoutedEventArgs e)
         {
             Button senderButton = sender as Button;
@@ -113,22 +121,36 @@ namespace Time_TimePeriodDesktopApp
             {
                 Clocks[i] = Clocks[i] + new TimePeriod(1);
             }
+            for (int i = 0; i < Timers.Count; i++)
+            {
+                Timers[i] = Timers[i] - new TimePeriod(1);
+            }
 
-            if(CurrentClockSet)
+
+            if (CurrentClockSet)
             {
                 TimeDisplayed.Content = Clocks.FirstOrDefault(c=> c.Id == CurrentClockID);
                 hourHand.RenderTransform = new RotateTransform(-90+((CurrentClock.Hours)*30) + (CurrentClock.Minutes / 2.0));
                 minuteHand.RenderTransform = new RotateTransform(-90 + (CurrentClock.Minutes)*6 + (CurrentClock.Seconds / 10.0));
                 secondHand.RenderTransform = new RotateTransform(-90 + (CurrentClock.Seconds*6));
             }
+            if (CurrentTimerSet)
+            { 
+                
+            }
         }
         private void dispatcherTimerSW_Tick(object sender, EventArgs e) 
         {
+            SWTime.Content = SW.ToString("ms");
+            SWSecondHand.RenderTransform = new RotateTransform(-90 + (SW.Seconds * 6)+(SW.Milliseconds / 20));
+            SWMSHand.RenderTransform = new RotateTransform(-90 + SW.Milliseconds * 3.6);
             if (SWRunning)
             {
+                SWStart.Content = "STOP";
                 SW.MSTick();
-
             }
+            else
+            { SWStart.Content = "START";}
         }
         private void OK_Popup_Click(object sender, RoutedEventArgs e)
         {
@@ -185,12 +207,14 @@ namespace Time_TimePeriodDesktopApp
 
         private void SWReset_Click(object sender, RoutedEventArgs e)
         {
-
+            if(!SWRunning)
+            { SW = new TimePeriod(0); }
+            
         }
 
         private void SWStart_Click(object sender, RoutedEventArgs e)
         {
-            
+            SWRunning = !SWRunning; 
         }
 
 
@@ -201,7 +225,26 @@ namespace Time_TimePeriodDesktopApp
 
         private void addNewTimer_Click(object sender, RoutedEventArgs e)
         {
+            Popup1Timer.IsOpen = true;
+        }
+        private void OK_Popup_Timer_Click(object sender, RoutedEventArgs e)
+        {
+            byte HHByte = hhTimer.Text == string.Empty ? (byte)0 : byte.Parse(hhTimer.Text);
+            byte MMByte = mmTimer.Text == string.Empty ? (byte)0 : byte.Parse(mmTimer.Text);
+            byte SSByte = ssTimer.Text == string.Empty ? (byte)0 : byte.Parse(ssTimer.Text);
+            newTimer(HHByte, MMByte, SSByte);
+            Popup1Timer.IsOpen = false;
+            hhTimer.Text = string.Empty;
+            mmTimer.Text = string.Empty;
+            ssTimer.Text = string.Empty;
 
+        }
+        private void Cancel_Popup_Timer_Click(object sender, RoutedEventArgs e)
+        {
+            Popup1Timer.IsOpen = false;
+            hhTimer.Text = string.Empty;
+            mmTimer.Text = string.Empty;
+            ssTimer.Text = string.Empty;
         }
     }
 }

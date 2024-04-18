@@ -1,19 +1,19 @@
 {
   "version": 2,
-  "dgSpecHash": "s1uBuZPsIWbVEmjPoOG8KgnhLZ+R+ShYwMhbbKfYx9jZlr/3ebp/4hPned4x6oLI++79L6FWm78EETUFcUZz5g==",
+  "dgSpecHash": "FhnU5/5e9LaY01lxxRc++Zopw79HaPK7PEvwsgPGYfwt4QeflzIOqcdThT+iJFzljIaMr+XI+cYmaPmo6s+EtQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\SkutecznieUse\\Desktop\\studia\\Time-TimePeriod\\TestProject1\\TestProject1.csproj",
+  "projectFilePath": "D:\\Users\\marcin.swiderski\\Desktop\\Time-TimePeriod\\TestProject1\\TestProject1.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\SkutecznieUse\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
-    "C:\\Users\\SkutecznieUse\\.nuget\\packages\\microsoft.codecoverage\\17.8.0\\microsoft.codecoverage.17.8.0.nupkg.sha512",
-    "C:\\Users\\SkutecznieUse\\.nuget\\packages\\microsoft.net.test.sdk\\17.8.0\\microsoft.net.test.sdk.17.8.0.nupkg.sha512",
-    "C:\\Users\\SkutecznieUse\\.nuget\\packages\\microsoft.testplatform.objectmodel\\17.8.0\\microsoft.testplatform.objectmodel.17.8.0.nupkg.sha512",
-    "C:\\Users\\SkutecznieUse\\.nuget\\packages\\microsoft.testplatform.testhost\\17.8.0\\microsoft.testplatform.testhost.17.8.0.nupkg.sha512",
-    "C:\\Users\\SkutecznieUse\\.nuget\\packages\\mstest.testadapter\\3.1.1\\mstest.testadapter.3.1.1.nupkg.sha512",
-    "C:\\Users\\SkutecznieUse\\.nuget\\packages\\mstest.testframework\\3.1.1\\mstest.testframework.3.1.1.nupkg.sha512",
-    "C:\\Users\\SkutecznieUse\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
-    "C:\\Users\\SkutecznieUse\\.nuget\\packages\\nuget.frameworks\\6.5.0\\nuget.frameworks.6.5.0.nupkg.sha512",
-    "C:\\Users\\SkutecznieUse\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512"
+    "D:\\Users\\marcin.swiderski\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
+    "D:\\Users\\marcin.swiderski\\.nuget\\packages\\microsoft.codecoverage\\17.8.0\\microsoft.codecoverage.17.8.0.nupkg.sha512",
+    "D:\\Users\\marcin.swiderski\\.nuget\\packages\\microsoft.net.test.sdk\\17.8.0\\microsoft.net.test.sdk.17.8.0.nupkg.sha512",
+    "D:\\Users\\marcin.swiderski\\.nuget\\packages\\microsoft.testplatform.objectmodel\\17.8.0\\microsoft.testplatform.objectmodel.17.8.0.nupkg.sha512",
+    "D:\\Users\\marcin.swiderski\\.nuget\\packages\\microsoft.testplatform.testhost\\17.8.0\\microsoft.testplatform.testhost.17.8.0.nupkg.sha512",
+    "D:\\Users\\marcin.swiderski\\.nuget\\packages\\mstest.testadapter\\3.1.1\\mstest.testadapter.3.1.1.nupkg.sha512",
+    "D:\\Users\\marcin.swiderski\\.nuget\\packages\\mstest.testframework\\3.1.1\\mstest.testframework.3.1.1.nupkg.sha512",
+    "D:\\Users\\marcin.swiderski\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "D:\\Users\\marcin.swiderski\\.nuget\\packages\\nuget.frameworks\\6.5.0\\nuget.frameworks.6.5.0.nupkg.sha512",
+    "D:\\Users\\marcin.swiderski\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512"
   ],
   "logs": []
 }
